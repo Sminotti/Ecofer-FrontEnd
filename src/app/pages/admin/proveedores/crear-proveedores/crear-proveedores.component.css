@@ -1,0 +1,48 @@
+.fondoBody {
+
+  line-height: 1.6;
+  font-family: "Playfair Display", serif;
+  padding: 0 1.5em;
+  height: 100vh;
+
+}
+
+form {
+  width: 95%;
+  margin: 5% auto;
+}
+
+table,
+mat-form-field,
+input {
+  width: 100%;
+}
+input {
+  color: white;
+}
+
+mat-label {
+  color: white;
+}
+td {
+  padding-right: 8px;
+}
+
+
+
+.sombra {
+  padding: 2%;
+  box-shadow: 0 0 20px 0 rgba(255, 255, 255, 0.3);
+}
+
+.logoRegister-login span {
+  color: #b70e21;
+}
+
+.logoRegister-login {
+  text-align: center;
+  font-size: 3em;
+  color: #fff;
+  text-transform: none;
+  margin-top: 10%;
+}

@@ -1,0 +1,142 @@
+<div class="fondoBody">
+  <p>
+    <mat-toolbar>
+      <span>Proveedores</span>
+      <span class="enviar_derecha"></span>
+      <button mat-raised-button color="warn">
+        <a
+          class="nav-link"
+          routerLink="/admin/proveedores/create"
+          routerLinkActive="active"
+        >
+          Crear proveedor nuevo</a
+        >
+      </button>
+    </mat-toolbar>
+  </p>
+  <mat-form-field appearance="fill">
+    <mat-label>Buscar</mat-label>
+    <input
+      matInput
+      (keyup)="applyFilter($event)"
+      placeholder="Ex. ium"
+      #input
+      autocomplete="off"
+    />
+  </mat-form-field>
+  <div class="contact-wrapper">
+    <table
+      mat-table
+      [dataSource]="dataSource"
+      matSort
+      class="mat-elevation-z10"
+    >
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          No.</th>
+        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+      </ng-container>
+
+      <!-- <ng-container matColumnDef="imagenProducto">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          Imagen</th>
+        <td mat-cell *matCellDef="let element">{{ element.imagenProducto }}</td>
+      </ng-container> -->
+
+     <ng-container matColumnDef="razonSocial">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          Razon social</th>
+        <td mat-cell *matCellDef="let element">{{ element.razonSocial }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="nombreFantasia">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          Empresa
+        </th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.nombreFantasia }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="contacto">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          Contacto
+        </th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.contacto }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="direccion">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          Direccion</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.direccion }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="codPostal">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          Codigo postal</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.codPostal }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="cuil">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          cuil</th>
+        <td mat-cell *matCellDef="let element">{{ element.cuil }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="telefono">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          Telefono</th>
+        <td mat-cell *matCellDef="let element">{{ element.telefono }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="localidad">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          Localidad</th>
+        <td mat-cell *matCellDef="let element">{{ element.localidad }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="observacionesProv">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          Observaciones</th>
+        <td mat-cell *matCellDef="let element">{{ element.observacionesProv }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="acciones">
+        <th mat-header-cell *matHeaderCellDef>
+          acciones</th>
+        <td mat-cell *matCellDef="let element">
+
+          <a class="cursor" [routerLink]="['singleUpdate',element.id]" style="color: blue" matTooltip="Editar Proveedor"
+            ><mat-icon>edit</mat-icon></a
+          >
+
+           <a class="cursor" (click)="eliminarProveedor(element.id)" style="color: red" matTooltip="Eliminar Proveedor"
+            ><mat-icon>delete</mat-icon></a
+          >
+
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+      <!-- Row shown when there is no matching data. -->
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">
+          No hubo coincidencia con el criterio buscado "{{ input.value }}"
+        </td>
+      </tr>
+    </table>
+
+    <mat-paginator
+      [pageSizeOptions]="[5, 10, 20]"
+      showFirstLastButtons
+    ></mat-paginator>
+  </div>
+</div>

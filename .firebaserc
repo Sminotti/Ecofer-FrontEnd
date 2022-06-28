@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "ecofer-9f9c2": {
+      "hosting": {
+        "FrontEnd": [
+          "ecofer-9f9c2"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,90 @@
+<div class="fondoBody centrar">
+  <div class="formulario">
+    <h1 class="logoRegister-login">Ingrese usuario<span> y password</span></h1>
+    <form class="sombra" [formGroup]="this.formLogin">
+      <table cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field appearance="fill">
+              <mat-label>Ingrese e-mail</mat-label>
+              <input
+                matInput
+                formControlName="usuario"
+                autocomplete="off"
+                autofocus
+              />
+              <!--Validaciones-->
+              <mat-error
+                *ngIf="
+                  this.formLogin.get('usuario')?.errors &&
+                  this.formLogin.get('usuario')?.dirty
+                "
+              >
+                <p *ngIf="this.formLogin.get('usuario')?.hasError('required')">
+                  El campo es obligatorio
+                </p>
+              </mat-error>
+              <!--Validaciones-->
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field appearance="fill">
+              <mat-label>Enter your password</mat-label>
+              <input
+                matInput
+                formControlName="password"
+                [type]="hide ? 'password' : 'text'"
+              />
+              <!--Validaciones-->
+              <mat-error
+                *ngIf="
+                  this.formLogin.get('password')?.errors &&
+                  this.formLogin.get('password')?.dirty
+                "
+              >
+                <p *ngIf="this.formLogin.get('password')?.hasError('required')">
+                  El campo es obligatorio
+                </p>
+              </mat-error>
+              <!--Validaciones-->
+              <button
+                mat-icon-button
+                matSuffix
+                (click)="hide = !hide"
+                [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide"
+              >
+                <mat-icon>{{
+                  hide ? "visibility_off" : "visibility"
+                }}</mat-icon>
+              </button>
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+      <div class="d-grid">
+        <button mat-raised-button color="primary" (click)="ingresar()">
+          Ingresar
+        </button>
+      </div>
+      <br>
+      <div class="loginRedSocial">
+        <button class="loginGoogle" mat-raised-button (click)="ingresarGoogle()">
+          Ingresar con Google
+        </button>
+        <button class="loginFacebook" mat-raised-button (click)="ingresarFacebook()">
+          Ingresar con Facebook
+        </button>
+      </div>
+    </form>
+
+  </div>
+
+  <div class="imagen centrar">
+    <img
+      cass="sombra"
+      src="../../../assets/images/Contacto/bg-01.jpg"
+      alt="Photo of a Shiba Inu"
+    />
+  </div>
+</div>

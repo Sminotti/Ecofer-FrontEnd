@@ -1,0 +1,201 @@
+<mat-toolbar>
+  <span>Contactenos</span>
+</mat-toolbar>
+<div class="fondoBody">
+
+  <!-- <div class="container_contacto"> -->
+    <div class="formulario">
+
+      <form class="sombra" [formGroup]="this.formContacto">
+        <mat-form-field>
+          <mat-label>Company</mat-label>
+          <input style="color: greenyellow" matInput disabled value="Ecofer" />
+        </mat-form-field>
+
+        <table cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field>
+                <mat-label>Empresa</mat-label>
+                <input matInput formControlName="empresa" />
+              </mat-form-field>
+              <div
+                *ngIf="
+                  this.formContacto.get('empresa')?.errors &&
+                  this.formContacto.get('empresa')?.dirty
+                "
+              >
+                <p
+                  *ngIf="this.formContacto.get('empresa')?.hasError('required')"
+                >
+                  El campo es obligatorio
+                </p>
+                <p
+                  *ngIf="this.formContacto.get('empresa')?.hasError('pattern')"
+                >
+                  El campo no acepta caracteres especiales
+                </p>
+              </div>
+            </td>
+            <td>
+              <mat-form-field>
+                <mat-label>Nombre</mat-label>
+                <input matInput formControlName="nombreContacto" />
+              </mat-form-field>
+              <div
+                *ngIf="
+                  this.formContacto.get('nombreContacto')?.errors &&
+                  this.formContacto.get('nombreContacto')?.dirty
+                "
+              >
+                <p
+                  *ngIf="
+                    this.formContacto
+                      .get('nombreContacto')
+                      ?.hasError('required')
+                  "
+                >
+                  El campo es obligatorio
+                </p>
+                <p
+                  *ngIf="
+                    this.formContacto.get('nombreContacto')?.hasError('pattern')
+                  "
+                >
+                  El campo no acepta caracteres especiales
+                </p>
+              </div>
+            </td>
+            <td>
+              <mat-form-field>
+                <mat-label>Apellido</mat-label>
+                <input matInput formControlName="apellidoContacto" />
+              </mat-form-field>
+              <div
+                *ngIf="
+                  this.formContacto.get('apellidoContacto')?.errors &&
+                  this.formContacto.get('apellidoContacto')?.dirty
+                "
+              >
+                <p
+                  *ngIf="
+                    this.formContacto
+                      .get('apellidoContacto')
+                      ?.hasError('required')
+                  "
+                >
+                  El campo es obligatorio
+                </p>
+                <p
+                  *ngIf="
+                    this.formContacto
+                      .get('apellidoContacto')
+                      ?.hasError('pattern')
+                  "
+                >
+                  El campo no acepta caracteres especiales
+                </p>
+              </div>
+            </td>
+          </tr>
+        </table>
+
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="emailContacto" />
+        </mat-form-field>
+        <div
+          *ngIf="
+            this.formContacto.get('emailContacto')?.errors &&
+            this.formContacto.get('emailContacto')?.dirty
+          "
+        >
+          <p
+            *ngIf="this.formContacto.get('emailContacto')?.hasError('required')"
+          >
+            El campo es obligatorio
+          </p>
+        </div>
+        <mat-form-field>
+          <mat-label>Telefono de contacto</mat-label>
+          <input matInput formControlName="telContacto" />
+        </mat-form-field>
+        <div
+          *ngIf="
+            this.formContacto.get('telContacto')?.errors &&
+            this.formContacto.get('telContacto')?.dirty
+          "
+        >
+          <p *ngIf="this.formContacto.get('telContacto')?.hasError('pattern')">
+            El telefono es invalido
+          </p>
+        </div>
+
+        <table cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field>
+                <mat-label>Localidad</mat-label>
+                <input
+                  matInput
+                  formControlName="localidad"
+                  placeholder="Ex. San Francisco"
+                />
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field>
+                <mat-label>Barrio</mat-label>
+                <input
+                  matInput
+                  formControlName="barrio"
+                  placeholder="Ex. California"
+                />
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field>
+                <mat-label>Codigo postal</mat-label>
+                <input
+                  matInput
+                  formControlName="codigoPostal"
+                  #postalCode
+                  maxlength="4"
+                  placeholder="Ex. 4105"
+                  value="4043"
+                />
+                <mat-hint align="end"
+                  >{{ postalCode.value.length }} / 4</mat-hint
+                >
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+        <table cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field>
+                <mat-label>Ingresa tu consulta</mat-label>
+                <textarea matInput formControlName="message"></textarea>
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+        <div class="row">
+          <button
+            mat-raised-button
+            color="primary"
+            (click)="sendMail()"
+            [disabled]="!formContacto.valid"
+          >
+            Registrese
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="imagen centrar">
+      <img src="../../../assets/images/Contacto/bg-01.jpg"
+      alt="" />
+    </div>
+  <!-- </div> -->
+</div>

@@ -1,0 +1,70 @@
+.fondoBody {
+
+  /* line-height: 5; */
+  font-family: "Playfair Display", serif;
+  padding:2rem;
+  min-height: 47rem;
+}
+
+table,mat-paginator, mat-toolbar {
+  width: 95%;
+  margin: auto;
+  text-align: center;
+  background: #222222;
+  color: white;
+}
+
+.mat-select-value {
+  color: white;
+}
+img {
+
+  object-fit: cover;
+  margin: 0%;
+  padding: 0%;
+  max-width: 100px;
+}
+
+td,
+th {
+  color: aliceblue;
+}
+
+mat-row,
+mat-header-row,
+mat-footer-row,
+th.mat-header-cell,
+td.mat-cell,
+td.mat-footer-cell {
+  border-bottom-color: rgb(55, 4, 4);
+}
+.mat-form-field,
+input {
+  font-size: 14px;
+  width: 100%;
+}
+
+th.mat-header-cell {
+  text-align: center;
+}
+
+.contact-wrapper {
+  padding: 2% 0;
+  box-shadow: 0 0 20px 0 rgba(255, 255, 255, 0.3);
+}
+
+
+
+mat-label {
+  color: aliceblue;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.enviar_derecha {
+  flex: 1 1 auto;
+}
+
+

@@ -1,0 +1,47 @@
+<div class="fondoBody">
+  <div class="seleccionar-productos">
+    <div id="btnCategorias">
+      <p>FILTRAR PRODUCTOS</p>
+    </div>
+  </div>
+
+  <div class="grid-container">
+    <div *ngFor="let producto of arrayProductos">
+      <mat-card class="product-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{ producto.nombreProducto }}</mat-card-title>
+          <mat-card-subtitle
+            >Capacidad: {{ producto.kilosProducto }} Kg
+          </mat-card-subtitle>
+        </mat-card-header>
+
+        <img mat-card-image src="{{ producto.imagenProducto }}" />
+
+        <mat-card-content>
+          <p>Aplicativos:{{ producto.aplicativos }}</p>
+          <p>Fuegos:{{ producto.fuegos }}</p>
+        </mat-card-content>
+
+        <mat-card-actions>
+
+          <a
+            type="button"
+            class="btn btn-primary btn-sm"
+            [routerLink]="['single', producto.idProducto]"
+          >
+            <mat-icon>arrow_forward_ios</mat-icon></a
+          >
+
+          <a type="button" class="btn btn-primary btn-sm"
+            ><span >$ {{producto.precioVenta}}</span></a
+          >
+
+          <a type="button" class="btn btn-primary btn-sm">
+            <mat-icon>add_shopping_cart</mat-icon></a
+          >
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,156 @@
+<div class="fondoBody">
+  <mat-toolbar>
+    <span>Crear producto</span>
+  </mat-toolbar>
+  <div class="row">
+    <form class="sombra" [formGroup]="this.formCrearProducto">
+      <table cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field>
+              <mat-label>Producto</mat-label>
+              <input matInput formControlName="nombre" autocomplete="off" />
+            </mat-form-field>
+          </td>
+
+          <td>
+
+            <mat-form-field appearance="fill">
+            <mat-label>Agente extintor</mat-label>
+            <mat-select  formControlName="idCategoria">
+              <div *ngFor="let categoriaProd of arrayCatProductos">
+                <mat-option [value]="categoriaProd.id">
+                  {{ categoriaProd.agExtintor }}
+                </mat-option>
+              </div>
+            </mat-select>
+          </mat-form-field>
+
+            <!-- <mat-form-field>
+            <mat-label>Categoria</mat-label>
+            <input matInput formControlName="idCategoria" autocomplete="off" />
+          </mat-form-field> -->
+
+          </td>
+        </tr>
+      </table>
+
+      <table cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field>
+              <mat-label>Cantidad a ingresar</mat-label>
+              <input matInput formControlName="unidades" autocomplete="off" />
+            </mat-form-field>
+          </td>
+
+          <td>
+            <mat-form-field>
+              <mat-label>Capacidad</mat-label>
+              <input matInput formControlName="kilos" autocomplete="off" />
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+
+      <table cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field>
+              <mat-label>Numero de serie</mat-label>
+              <input
+                matInput
+                formControlName="numeroSerie"
+                autocomplete="off"
+              />
+            </mat-form-field>
+          </td>
+
+          <td>
+            <mat-form-field>
+              <mat-label>Precio de costo</mat-label>
+              <input
+                matInput
+                formControlName="precioCosto"
+                autocomplete="off"
+              />
+            </mat-form-field>
+          </td>
+
+          <td>
+            <mat-form-field>
+              <mat-label>Precio de venta</mat-label>
+              <input
+                matInput
+                formControlName="precioVenta"
+                autocomplete="off"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+
+      <table cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field>
+              <mat-label>Proveedor</mat-label>
+              <mat-select  formControlName="idProveedor">
+                <div *ngFor="let proveedor of arrayProveedores">
+                  <mat-option [value]="proveedor.id">{{
+                    proveedor.nombreFantasia
+                  }}</mat-option>
+                </div>
+              </mat-select>
+            </mat-form-field>
+
+            <!-- <mat-form-field>
+              <mat-label>Proveedor</mat-label>
+              <input
+                matInput
+                formControlName="idProveedor"
+                autocomplete="off"
+              />
+            </mat-form-field> -->
+
+
+          </td>
+
+          <td>
+            <mat-form-field>
+              <mat-label>Observaciones del producto</mat-label>
+              <input
+                matInput
+                formControlName="observacionesProd"
+                autocomplete="off"
+              />
+            </mat-form-field>
+          </td>
+          <!-- ------------------------------------------input file------------------------------------------------ -->
+          <td>
+            <input
+              type="file"
+              id="uid"
+              formControlName="uid"
+              name="uid"
+              (change)="onFileChange($event)"
+            />
+            <div *ngIf="imagenPrevia">
+              <label for="">Preview</label>
+              <div >
+                  <img width="100px" [src]="imagenPrevia" alt="">
+              </div>
+          </div>
+          </td>
+
+          <!-- ------------------------------------------input file------------------------------------------------ -->
+        </tr>
+      </table>
+      <div class="row">
+        <button mat-raised-button color="primary" (click)="crearProducto()" [disabled]="!formCrearProducto.valid">
+          Crear Producto
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

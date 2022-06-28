@@ -1,0 +1,89 @@
+<mat-nav-list>
+  <div *ngIf="this.authService.checkLocalStorage()">
+    <div class="logo" *ngFor="let user of usuario">
+      <img [src]="user.uid" />
+      <h1>{{ this.user.usuario }}</h1>
+      <h2>{{ this.user.nombre }} {{ this.user.idEmpresa }}</h2>
+    </div>
+  </div>
+
+  <div *ngIf="usuarioGoogle | async as user">
+    <div class="logo">
+      <img [src]="user.photoURL" />
+      {{ user.displayName }}
+    </div>
+  </div>
+
+  <ng-template #noRegister>
+    <div class="logo">
+      <img
+        src="https://res.cloudinary.com/doof8plzr/image/upload/v1650487693/fur0lb09vr5xeafs8fg9.jpg"
+        alt=""
+      />
+    </div>
+  </ng-template>
+
+  <mat-divider></mat-divider>
+  <h2 matSubheader class="mt-2">APLICACIONES</h2>
+  <a mat-list-item routerLink="" routerLinkActive="list-item-active"
+    ><mat-icon class="mat-18">home</mat-icon>Home</a
+  >
+  <a mat-list-item routerLink="productos" routerLinkActive="list-item-active"
+    ><mat-icon class="mat-18">article</mat-icon>Productos y Servicios</a
+  >
+  <a mat-list-item routerLink="clientes/all" routerLinkActive="list-item-active"
+    ><mat-icon class="mat-18">business</mat-icon>Empresas que nos respaldan</a
+  >
+  <a mat-list-item routerLink="faqs" routerLinkActive="list-item-active"
+    ><mat-icon>question_answer</mat-icon>Preguntas Frecuentes</a
+  >
+  <a mat-list-item routerLink="about" routerLinkActive="list-item-active"
+    ><mat-icon class="mat-18">sms</mat-icon>Nosotros</a
+  >
+  <a mat-list-item routerLink="contacto" routerLinkActive="list-item-active"
+    ><mat-icon class="mat-18">contact_phone</mat-icon>Contacto</a
+  >
+
+  <!-- ---------------------------------rutas privadas--------------------------------------------- -->
+
+  <!-- pregunto si existe un token -->
+  <span *ngIf="this.authService.checkLocalStorage()">
+    <mat-divider></mat-divider>
+    <h2 matSubheader class="mt-2">ADMINISTRADOR</h2>
+    <a
+      mat-list-item
+      routerLinkActive="list-item-active"
+      routerLink="controlPanel"
+    >
+      <mat-icon>build</mat-icon> Panel de control
+    </a>
+    <a
+      mat-list-item
+      routerLinkActive="list-item-active"
+      routerLink="admin/productos"
+    >
+      <mat-icon>admin_panel_settings</mat-icon> Tabla de productos
+    </a>
+    <a
+      mat-list-item
+      routerLinkActive="list-item-active"
+      routerLink="admin/categoriasProd"
+    >
+      <mat-icon>admin_panel_settings</mat-icon> Tabla categoria de productos
+    </a>
+    <a
+      mat-list-item
+      routerLinkActive="list-item-active"
+      routerLink="admin/proveedores"
+    >
+      <mat-icon>admin_panel_settings</mat-icon> Tabla de proveedores
+    </a>
+    <a
+      mat-list-item
+      routerLinkActive="list-item-active"
+      routerLink="admin/tareas"
+    >
+      <mat-icon>admin_panel_settings</mat-icon> Listado de tareas
+    </a>
+  </span>
+</mat-nav-list>

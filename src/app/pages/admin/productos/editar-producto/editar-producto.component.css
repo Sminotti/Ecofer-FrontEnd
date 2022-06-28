@@ -1,0 +1,72 @@
+.card-vistaPrevia {
+  width:80%;
+  height:min-content;
+   background: #222222;
+ }
+ mat-card{
+   background: #222222;
+   margin-left: 2rem;
+   color: #fff;
+ }
+ img {
+  min-width: 200px;
+  max-height: 150px;
+}
+ .fondoBody {
+
+   line-height: 1.6;
+   /* font-family: "Playfair Display", serif; */
+   padding: 0 1.5em;
+   height: 100vh;
+
+   width: 100%;
+ }
+.botonSelectImage{
+  margin-top: 3px;
+border-radius: 5px;
+color: black;
+background: darkgray;
+width: 200px;
+}
+ .sombra {
+   padding: 2%;
+   box-shadow: 0 0 20px 0 rgba(255, 255, 255, 0.3);
+ }
+
+ .logoRegister-login span {
+   color: #b70e21;
+ }
+
+ .logoRegister-login {
+   text-align: center;
+   font-size: 3em;
+   color: #fff;
+   text-transform: none;
+   margin-top: 10%;
+ }
+
+ mat-toolbar {
+   width: 95%;
+   margin: auto;
+   text-align: center;
+   background: #222222;
+   color: white;
+ }
+ input {
+   background: #222222;
+   color: #fff;
+ }
+ mat-label {
+   color: white;
+ }
+
+ form {
+   width: 95%;
+   margin: 5% 0;
+ }
+
+ .centrar {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+ }

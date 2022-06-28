@@ -1,0 +1,62 @@
+.fondoBody {
+
+  /* line-height: 1.6; */
+  font-family: "Playfair Display", serif;
+  padding: 0 1.5em;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 74vh;
+
+}
+
+ .sombra {
+   padding: 2%;
+   box-shadow: 0 0 20px 0 rgba(255, 255, 255, 0.3);
+ }
+
+ .centrar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  color: #fff;
+}
+
+form {
+  width: 95%;
+  margin: 5% auto;
+}
+
+table,
+mat-form-field,
+input {
+  width: 100%;
+}
+
+mat-label {
+  color: white;
+}
+
+td {
+  padding-right: 8px;
+}
+
+.imagen img {
+  max-height: 40rem;
+  width: 90%;
+}
+
+/*--------------------------------------------------------------------*/
+
+
+ mat-toolbar {
+   width: 95%;
+   margin: auto;
+   text-align: center;
+   background: #222222;
+   color: white;
+ }
+
+

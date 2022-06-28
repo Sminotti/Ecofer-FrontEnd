@@ -1,0 +1,142 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
+  text-decoration: none;
+}
+
+.footer {
+
+  background-color: #eff3f5;
+  color: aliceblue;
+  font-size: 20px;
+  /* position: absolute; */
+  /* bottom: 0; */
+  width: 100%;
+  /* text-align: end; */
+  padding: 50px 0px; /*
+  background-image: url(../../../assets/images/Footer/background-footer.svg);
+  background-size: cover;
+  fill: aqua; */
+
+  -webkit-mask-image: url(../../../assets/images/Footer/background-footer.svg);
+  mask-image: url(../../../assets/images/Footer/background-footer.svg);
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  mask-repeat: no-repeat;
+  overflow: hidden;
+}
+.mapa iframe {
+  width: auto;
+  height: 12em;
+  border: 0;
+  margin-top: 15px;
+}
+.container__footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1500px;
+  margin: auto;
+  margin-top: 55px;
+}
+
+.box__footer {
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+}
+
+.box__footer_redSocial {
+  display: flex;
+  flex-direction: row;
+  padding-right: 44px;
+  max-width: 208px;
+  margin: 0 auto auto auto;
+  flex-wrap: wrap;
+  inline-size: auto;
+}
+
+.box__footer .logo img {
+  width: 180px;
+  border-radius: 50px;
+}
+
+.box__footer .terms {
+  max-width: 350px;
+  margin-top: 20px;
+  font-weight: 500;
+
+  font-size: 18px;
+}
+
+.box__footer .terms p{
+  color: #7a7a7a;
+}
+.box__footer h2 {
+  margin-bottom: 30px;
+  color: #343434;
+  font-weight: 700;
+}
+
+.box__footer_redSocial h2 {
+  margin: 40px 0px;
+  color: #343434;
+  font-weight: 700;
+}
+
+.box__footer a {
+  margin-top: 10px;
+  color: #7a7a7a;
+  font-weight: 500;
+}
+
+.box__footer_redSocial a {
+  background: #343434;
+
+  margin-top: 10px;
+  color: #7a7a7a;
+  font-weight: 500;
+  width: 38px;
+  height: 38px;
+  margin: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.box__footer_redSocial a:hover {
+  color: aliceblue;
+}
+
+.box__footer a:hover {
+  opacity: 0.8;
+}
+
+.box__footer_redSocial a .fab{
+  color: grey;
+  font-size: 20px;
+}
+
+.box__footer a .fab {
+  font-size: 20px;
+}
+
+.box__copyright {
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+  padding: 0px 40px;
+}
+
+.box__copyright p,b {
+  margin-top: 20px;
+  color: #7a7a7a;
+}
+
+.box__copyright hr {
+  border: none;
+  height: 1px;
+  background-color: #7a7a7a;
+}

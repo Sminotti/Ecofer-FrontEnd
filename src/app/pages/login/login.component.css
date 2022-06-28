@@ -1,0 +1,92 @@
+.fondoBody {
+  line-height: 1.6;
+  font-family: "Playfair Display", serif;
+  padding: 0 1.5em;
+
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(
+    2,
+    1fr
+  ); /*especifico cuantas cards se ven en una misma fila*/
+  gap: 1rem;
+  width: 75%;
+  height: 46rem;
+}
+
+.loginRedSocial {
+
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(
+    2,
+    1fr
+  ); /*especifico cuantas cards se ven en una misma fila*/
+  width: 100%;
+}
+
+.loginGoogle {
+  color: #fff;
+  background: #b70e21;
+
+  width: 100%;
+}
+
+.loginFacebook {
+  color: #fff;
+  background: #170eb7;
+}
+
+form {
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.centrar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+table,
+mat-form-field,
+input {
+  width: 100%;
+  font-size: 1.1em;
+  margin: 2% 0;
+  color: white;
+}
+
+mat-label {
+  color: white;
+}
+td {
+  padding-right: 8px;
+}
+
+.sombra {
+  /* padding: 2%; */
+  box-shadow: 0 0 20px 0 rgba(255, 255, 255, 0.3);
+}
+
+.logoRegister-login span {
+  color: #b70e21;
+}
+
+.logoRegister-login {
+  text-align: center;
+  font-size: 3em;
+  color: #fff;
+  text-transform: none;
+  /* margin-top: 10%; */
+}
+
+.imagen {
+  background-position: center center;
+  /* height: 35rem; */
+  /* background-image: url(../../../assets/images/Contacto/bg-01.jpg); */
+}
+.imagen img {
+  max-height: 45rem;
+  width: 100%;
+}

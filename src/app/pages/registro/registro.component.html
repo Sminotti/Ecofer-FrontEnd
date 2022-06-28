@@ -1,0 +1,376 @@
+<div class="fondoBody">
+  <div class="formulario">
+    <h1 class="logoRegister-login">Registre nuevo<span> usuario</span></h1>
+    <form class="sombra" [formGroup]="this.formRegistro">
+      <table cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field appearance="fill">
+              <mat-label>Empresa</mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="nombreFantasia"
+              />
+              <!--Validaciones-->
+              <mat-error
+                *ngIf="
+                  this.formRegistro.get('nombreFantasia')?.errors &&
+                  this.formRegistro.get('nombreFantasia')?.dirty
+                "
+              >
+                <p
+                  *ngIf="
+                    this.formRegistro
+                      .get('nombreFantasia')
+                      ?.hasError('required')
+                  "
+                >
+                  El campo es obligatorio
+                </p>
+              </mat-error>
+              <!--Validaciones-->
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field appearance="fill">
+              <mat-label>Razon social</mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="razonSocial"
+              />
+              <!--Validaciones-->
+              <mat-error
+                *ngIf="
+                  this.formRegistro.get('razonSocial')?.errors &&
+                  this.formRegistro.get('razonSocial')?.dirty
+                "
+              >
+                <p
+                  *ngIf="
+                    this.formRegistro.get('razonSocial')?.hasError('required')
+                  "
+                >
+                  El campo es obligatorio
+                </p>
+              </mat-error>
+              <!--Validaciones-->
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field appearance="fill">
+              <mat-label>Cuit Cuil</mat-label>
+              <input matInput autocomplete="off" formControlName="cuitCuil" />
+              <!--Validaciones-->
+              <mat-error
+                *ngIf="
+                  this.formRegistro.get('cuitCuil')?.errors &&
+                  this.formRegistro.get('cuitCuil')?.dirty
+                "
+              >
+                <p
+                  *ngIf="
+                    this.formRegistro.get('cuitCuil')?.hasError('required')
+                  "
+                >
+                  El campo es obligatorio
+                </p>
+              </mat-error>
+              <!--Validaciones-->
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+
+      <table cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field appearance="fill">
+              <mat-label>Nombre</mat-label>
+              <input matInput autocomplete="off" formControlName="nombre" />
+
+              <!--Validaciones-->
+              <mat-error
+                *ngIf="
+                  this.formRegistro.get('nombre')?.errors &&
+                  this.formRegistro.get('nombre')?.dirty
+                "
+              >
+                <p
+                  *ngIf="this.formRegistro.get('nombre')?.hasError('required')"
+                >
+                  El campo es obligatorio
+                </p>
+              </mat-error>
+              <!--Validaciones-->
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field appearance="fill">
+              <mat-label>Apellido</mat-label>
+              <input matInput autocomplete="off" formControlName="apellido" />
+              <!--Validaciones-->
+              <mat-error
+                *ngIf="
+                  this.formRegistro.get('apellido')?.errors &&
+                  this.formRegistro.get('apellido')?.dirty
+                "
+              >
+                <p
+                  *ngIf="
+                    this.formRegistro.get('apellido')?.hasError('required')
+                  "
+                >
+                  El campo es obligatorio
+                </p>
+              </mat-error>
+              <!--Validaciones-->
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field appearance="fill">
+              <mat-label>Dni</mat-label>
+              <input matInput autocomplete="off" formControlName="dni" />
+              <!--Validaciones-->
+              <mat-error
+                *ngIf="
+                  this.formRegistro.get('dni')?.errors &&
+                  this.formRegistro.get('dni')?.dirty
+                "
+              >
+                <p *ngIf="this.formRegistro.get('dni')?.hasError('required')">
+                  El campo es obligatorio
+                </p>
+              </mat-error>
+              <!--Validaciones-->
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+
+      <table cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field appearance="fill">
+              <mat-label>Direccion</mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="direccion"
+                placeholder="Ex. San Francisco"
+              />
+              <!--Validaciones-->
+              <mat-error
+                *ngIf="
+                  this.formRegistro.get('direccion')?.errors &&
+                  this.formRegistro.get('direccion')?.dirty
+                "
+              >
+                <p
+                  *ngIf="
+                    this.formRegistro.get('direccion')?.hasError('required')
+                  "
+                >
+                  El campo es obligatorio
+                </p>
+              </mat-error>
+              <!--Validaciones-->
+            </mat-form-field>
+          </td>
+
+          <td>
+            <mat-form-field appearance="fill">
+              <mat-label>Codigo Postal</mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="codPostal"
+                #postalCode
+                maxlength="5"
+                placeholder="Ex. 94105"
+                value="94043"
+              />
+              <mat-hint align="end">{{ postalCode.value.length }} / 5</mat-hint>
+
+              <!--Validaciones-->
+              <mat-error
+                *ngIf="
+                  this.formRegistro.get('codPostal')?.errors &&
+                  this.formRegistro.get('codPostal')?.dirty
+                "
+              >
+                <p
+                  *ngIf="
+                    this.formRegistro.get('codPostal')?.hasError('required')
+                  "
+                >
+                  El campo es obligatorio
+                </p>
+              </mat-error>
+              <!--Validaciones-->
+            </mat-form-field>
+          </td>
+
+          <td>
+            <mat-form-field appearance="fill">
+              <mat-label>Telefono</mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="telefono"
+                placeholder="Ex. California"
+              />
+              <!--Validaciones-->
+              <mat-error
+                *ngIf="
+                  this.formRegistro.get('telefono')?.errors &&
+                  this.formRegistro.get('telefono')?.dirty
+                "
+              >
+                <p
+                  *ngIf="
+                    this.formRegistro.get('telefono')?.hasError('required')
+                  "
+                >
+                  El campo es obligatorio
+                </p>
+              </mat-error>
+              <!--Validaciones-->
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+
+      <table cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field appearance="fill">
+              <mat-label>Email</mat-label>
+              <input
+                autocomplete="off"
+                formControlName="mail"
+                type="email"
+                matInput
+                placeholder="Ex. pat@example.com"
+              />
+              <!--Validaciones-->
+              <mat-error
+                *ngIf="
+                  this.formRegistro.get('mail')?.errors &&
+                  this.formRegistro.get('mail')?.dirty
+                "
+              >
+                <p *ngIf="this.formRegistro.get('mail')?.hasError('required')">
+                  El campo es obligatorio
+                </p>
+              </mat-error>
+              <!--Validaciones-->
+            </mat-form-field>
+          </td>
+          <!-- ------------------------------------------input file------------------------------------------------ -->
+          <td>
+            <input
+              type="file"
+              id="uid"
+              formControlName="uid"
+              name="uid"
+              (change)="onFileChange($event)"
+            />
+            <div *ngIf="imagenPrevia">
+              <label>Preview</label>
+              <div>
+                <img width="100px" [src]="imagenPrevia" alt="" />
+              </div>
+            </div>
+          </td>
+        </tr>
+        <!-- ------------------------------------------input file------------------------------------------------ -->
+      </table>
+
+      <table cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field appearance="fill">
+              <mat-label>Usuario</mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="usuario"
+                placeholder="Ex. San Francisco"
+              />
+              <!--Validaciones-->
+              <mat-error
+                *ngIf="
+                  this.formRegistro.get('usuario')?.errors &&
+                  this.formRegistro.get('usuario')?.dirty
+                "
+              >
+                <p
+                  *ngIf="this.formRegistro.get('usuario')?.hasError('required')"
+                >
+                  El campo es obligatorio
+                </p>
+              </mat-error>
+              <!--Validaciones-->
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field appearance="fill">
+              <mat-label>Elija su password</mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="password"
+                [type]="hide ? 'password' : 'text'"
+              />
+              <button
+                mat-icon-button
+                matSuffix
+                (click)="hide = !hide"
+                [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide"
+              >
+                <mat-icon>{{
+                  hide ? "visibility_off" : "visibility"
+                }}</mat-icon>
+              </button>
+              <!--Validaciones-->
+              <mat-error
+                *ngIf="
+                  this.formRegistro.get('password')?.errors &&
+                  this.formRegistro.get('password')?.dirty
+                "
+              >
+                <p
+                  *ngIf="
+                    this.formRegistro.get('password')?.hasError('required')
+                  "
+                >
+                  El campo es obligatorio
+                </p>
+              </mat-error>
+              <!--Validaciones-->
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+      <div class="row">
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="registrarse()"
+          [disabled]="!formRegistro.valid"
+        >
+          Registrese
+        </button>
+      </div>
+    </form>
+  </div>
+  <div class="imagen centrar">
+    <img
+      src="../../../assets/images/ecofer fondo.jpg"
+      alt="Photo of a Shiba Inu"
+    />
+  </div>
+</div>

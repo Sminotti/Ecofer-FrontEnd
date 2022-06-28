@@ -1,0 +1,150 @@
+
+
+:root {
+  --primario: #e23939; /*color recuadro de la*/
+  --gris-claro: #b8b8b8; /*color del icono*/
+  --sombra: 0 0 20px 0 rgba(255, 255, 255, 0.3);
+}
+
+.fondoBody {
+
+  /* line-height: 1.6; */
+  font-family: "Playfair Display", serif;
+  /* padding: 0 1.5em;*/
+  height: 46rem;
+
+}
+
+.mat-tab-label div img {
+  height: auto;
+  width: auto;
+  max-height: 200px;
+  max-width: 200px;
+}
+
+/* aca esta el problema - le pasa los estilos al home */
+.mat-tab-label{
+  min-width: 25px !important;
+  min-height: 8rem;
+  margin: 1.8em 3.3em;
+  border-radius: 10px;
+}
+
+.mat-tab-label:hover{
+  background: lightgreen;
+}
+
+.centrar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* margin: 16px; */
+  /* padding: 16px; */
+}
+
+/*! =================================================*/
+/*! ============= Contenedor Preguntas ============= */
+/*! =================================================*/
+.contenedor-preguntas {
+  grid-template-columns: 1fr;
+  gap: 2em;
+  /* display: grid; */
+  width: 80vw;
+  height: auto;
+  /* background: tomato; */
+  margin: 50px;
+}
+
+.contenedor-preguntas.activo {
+  display: grid;
+}
+
+.contenedor-pregunta {
+  background: rgba(231, 11, 11, 0.199);
+  padding: 1em;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: 0.3s ease all;
+  cursor: pointer;
+  margin-bottom: 1em;
+  color: #fff;
+}
+
+.contenedor-pregunta:hover {
+  box-shadow: var(--sombra);
+}
+
+.contenedor-pregunta.activa {
+  border: 2px solid var(--primario);
+}
+
+.contenedor-pregunta mat-expansion-panel mat-expansion-panel-header {
+  background: rgb(65, 21, 21);
+}
+.contenedor-pregunta
+  mat-expansion-panel
+  mat-expansion-panel-header
+  mat-panel-title {
+  background: rgb(65, 21, 21);
+}
+.contenedor-pregunta mat-expansion-panel .mat-expansion-panel-body {
+  background: rgb(65, 21, 21);
+  font-size: 1em;
+  line-height: 2em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: aliceblue;
+}
+
+.contenedor-pregunta
+  mat-expansion-panel
+  mat-expansion-panel-header:hover:not([aria-disabled="true"]) {
+  background: rgb(65, 21, 21);
+}
+
+.mat-expansion-panel
+  .mat-expansion-panel-header.cdk-keyboard-focused:not([aria-disabled="true"]),
+ .mat-expansion-panel
+  .mat-expansion-panel-header.cdk-program-focused:not([aria-disabled="true"]),
+  .mat-expansion-panel:not(.mat-expanded)
+  .mat-expansion-panel-header:hover:not([aria-disabled="true"]) {
+  background: rgb(65, 21, 21);
+  border-radius: 0;
+}
+
+.mat-expansion-panel-header.mat-expanded:focus:not([aria-disabled="true"]),
+.mat-expansion-panel-header.mat-expanded:hover {
+  background: rgb(65, 21, 21);
+  border-radius: 0;
+}
+
+/* =================================================*/
+/*! ============= Preguntas ============= */
+/*! =================================================*/
+.texto {
+  font-weight: 700;
+  font-size: 1em;
+  line-height: 2em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: aliceblue;
+}
+
+.contenedor-pregunta.activa .respuesta {
+  opacity: 1;
+  margin-top: 2em;
+}
+
+.container-faqs {
+  width: 80%;
+}
+
+.sombra {
+  /* padding: 5rem; */
+  box-shadow: var(--sombra);
+}
+
+

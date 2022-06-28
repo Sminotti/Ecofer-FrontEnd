@@ -1,0 +1,246 @@
+<h1 class="sombra-titulo">Tabla de tareas</h1>
+<div class="fondoBody">
+  <div class="box-formulario">
+    <div class="ingresar">
+      <h1 class="sombra">Ingrese tarea</h1>
+      <div class="form-ingresar">
+        <form [formGroup]="this.formTareas">
+          <table cellspacing="0">
+            <tr class="formulario">
+              <td>
+                <mat-form-field appearance="fill">
+                  <mat-label>Cliente</mat-label>
+                  <input
+                    matInput
+                    formControlName="idCliente"
+                    placeholder="rulemanes centenera"
+                    autocomplete="off"
+                  />
+                  <!--Validaciones-->
+                  <mat-error
+                    *ngIf="
+                      this.formTareas.get('idCliente')?.errors &&
+                      this.formTareas.get('idCliente')?.dirty
+                    "
+                  >
+                    <p
+                      *ngIf="
+                        this.formTareas.get('cliente')?.hasError('required')
+                      "
+                    >
+                      El campo es obligatorio
+                    </p>
+                  </mat-error>
+                  <!--Validaciones-->
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field appearance="fill">
+                  <mat-label>Tarea</mat-label>
+                  <input
+                    matInput
+                    formControlName="tarea"
+                    placeholder="rulemanes centenera"
+                    autocomplete="off"
+                  />
+                  <!--Validaciones-->
+                  <mat-error
+                    *ngIf="
+                      this.formTareas.get('tarea')?.errors &&
+                      this.formTareas.get('tarea')?.dirty
+                    "
+                  >
+                    <p
+                      *ngIf="this.formTareas.get('tarea')?.hasError('required')"
+                    >
+                      El campo es obligatorio
+                    </p>
+                  </mat-error>
+                  <!--Validaciones-->
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field appearance="fill">
+                  <mat-label>Choose a date</mat-label>
+                  <input
+                    matInput
+                    [matDatepicker]="picker"
+                    formControlName="fecha"
+                  />
+                  <mat-datepicker-toggle
+                    matSuffix
+                    [for]="picker"
+                  ></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+
+                  <!-- <mat-form-field appearance="fill">
+                  <mat-label>Fecha</mat-label>
+                  <input
+                    matInput
+                    formControlName="fecha"
+                    placeholder="rulemanes centenera"
+                    autocomplete="off"
+                  /> -->
+                  <!--Validaciones-->
+                  <mat-error
+                    *ngIf="
+                      this.formTareas.get('fecha')?.errors &&
+                      this.formTareas.get('fecha')?.dirty
+                    "
+                  >
+                    <p
+                      *ngIf="this.formTareas.get('fecha')?.hasError('required')"
+                    >
+                      El campo es obligatorio
+                    </p>
+                  </mat-error>
+                  <!--Validaciones-->
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field appearance="fill">
+                  <mat-label>Direccion</mat-label>
+                  <input
+                    matInput
+                    formControlName="direccion"
+                    placeholder="rulemanes centenera"
+                    autocomplete="off"
+                  />
+                  <!--Validaciones-->
+                  <mat-error
+                    *ngIf="
+                      this.formTareas.get('direccion')?.errors &&
+                      this.formTareas.get('direccion')?.dirty
+                    "
+                  >
+                    <p
+                      *ngIf="
+                        this.formTareas.get('direccion')?.hasError('required')
+                      "
+                    >
+                      El campo es obligatorio
+                    </p>
+                  </mat-error>
+                  <!--Validaciones-->
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field appearance="fill">
+                  <mat-label>Quien realiza</mat-label>
+                  <input
+                    matInput
+                    formControlName="realiza"
+                    placeholder="rulemanes centenera"
+                    autocomplete="off"
+                  />
+                  <!--Validaciones-->
+                  <mat-error
+                    *ngIf="
+                      this.formTareas.get('realiza')?.errors &&
+                      this.formTareas.get('realiza')?.dirty
+                    "
+                  >
+                    <p
+                      *ngIf="
+                        this.formTareas.get('realiza')?.hasError('required')
+                      "
+                    >
+                      El campo es obligatorio
+                    </p>
+                  </mat-error>
+                  <!--Validaciones-->
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field appearance="fill">
+                  <mat-label>Observaciones</mat-label>
+                  <textarea
+                    matInput
+                    placeholder="Ex. It makes me feel..."
+                    formControlName="observaciones"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+            </tr>
+          </table>
+          <div class="d-grid">
+            <button
+              mat-raised-button
+              color="primary"
+              (click)="crearTarea()"
+              [disabled]="!formTareas.valid"
+            >
+              Ingresar tarea
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="buscar">
+      <h1 class="sombra">Buscar por dia</h1>
+      <div class="form-buscar"></div>
+    </div>
+  </div>
+  <!-- ----------------------lista de tareas------------------------------------------ -->
+  <div class="box">
+    <h1 class="sombra">TAREA</h1>
+    <div
+      cdkDropList
+      class="example-list"
+      id="lista-tareas"
+      [cdkDropListData]="tareas"
+      [cdkDropListConnectedTo]="['lista-enProceso']"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <div class="example-box" *ngFor="let item of tareas" cdkDrag>
+        {{ item.tarea }}
+        {{ item.fecha }}
+        {{ item.idCliente }}
+        {{ item.direccion }}
+        {{ item.realiza }}
+        {{ item.observaciones }}
+      </div>
+    </div>
+  </div>
+  <div class="box">
+    <h1 class="sombra">EN PROCESO</h1>
+    <div
+      cdkDropList
+      class="example-list"
+      id="lista-enProceso"
+      [cdkDropListData]="enProceso"
+      [cdkDropListConnectedTo]="['lista-tareas', 'lista-terminadas']"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <div class="example-box" *ngFor="let item of enProceso" cdkDrag>
+        {{ item.tarea }}
+        {{ item.fecha }}
+        {{ item.idCliente }}
+        {{ item.direccion }}
+        {{ item.realiza }}
+        {{ item.observaciones }}
+      </div>
+    </div>
+  </div>
+  <div class="box">
+    <h1 class="sombra">TERMINADA</h1>
+    <div
+      cdkDropList
+      class="example-list"
+      id="lista-terminadas"
+      [cdkDropListData]="terminadas"
+      [cdkDropListConnectedTo]="['lista-enProceso']"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <div class="example-box" *ngFor="let item of terminadas" cdkDrag>
+        {{ item.tarea }}
+        {{ item.fecha }}
+        {{ item.idCliente }}
+        {{ item.direccion }}
+        {{ item.realiza }}
+        {{ item.observaciones }}
+      </div>
+    </div>
+  </div>
+</div>

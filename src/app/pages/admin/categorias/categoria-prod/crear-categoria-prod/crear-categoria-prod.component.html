@@ -1,0 +1,48 @@
+<div class="fondoBody">
+  <mat-toolbar>
+    <span>Crear Categoria Producto</span>
+  </mat-toolbar>
+  <div class="row">
+    <form class="sombra" [formGroup]="this.formCrearCategoriaProd">
+      <table cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field>
+              <mat-label>Agente extintor</mat-label>
+              <input matInput formControlName="agExtintor" />
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label>Clase</mat-label>
+              <input matInput formControlName="clase" />
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label>Descripcion</mat-label>
+              <input matInput formControlName="descripcion" />
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label>Fuegos</mat-label>
+              <input matInput formControlName="fuegos" />
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label>Aplicativos</mat-label>
+              <input matInput formControlName="aplicativos" />
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+      <div class="row">
+        <button mat-raised-button color="primary" (click)="crearCategoriaProd()" [disabled]="!formCrearCategoriaProd.valid">
+         Ingresar categoria
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

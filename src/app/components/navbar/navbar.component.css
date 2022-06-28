@@ -1,0 +1,18 @@
+.enviar_derecha {
+  flex: 1 1 auto;
+}
+.colorNabvar {
+  background-color: #5f5f5f;
+  color: aliceblue;
+  justify-content: space-between;
+  height:60px;
+  margin-bottom: 0%;
+}
+
+span {
+  padding-right: 1rem;
+}
+
+mat-icon {
+  vertical-align: middle;
+}
