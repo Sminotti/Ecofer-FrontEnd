@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth-service.service';
 import { Usuario } from '../../model/IUsuario';
+import { CloudConfig } from '@cloudinary/url-gen';
 //import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
@@ -11,12 +12,10 @@ import { Usuario } from '../../model/IUsuario';
 export class SideNavComponent {
   usuario: Usuario[] = [];
   showFiller = false;
-  usuarioGoogle = this.authService.obtenerUsuario();
+  usuarioGoogle = this.authService.obtenerUsuarioGoogle(); //observable
 
   constructor(public authService: AuthService) {
     this.usuario = JSON.parse(localStorage.getItem('user')!); // se pone asi por si es null
     console.log('usuario recuperado:', this.usuario);
   }
-
-  //hacer funcion que traiga los datos del login copn google
 }

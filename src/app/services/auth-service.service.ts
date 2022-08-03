@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { AngularFireAuth} from '@angular/fire/compat/auth';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import firebase from 'firebase/compat/app';
+import { UsuarioGoogle } from '../model/iloginGoogle';
 
 @Injectable({
   providedIn: 'root',
@@ -41,22 +42,24 @@ export class AuthService {
     return !!token; //= token ? true : false
   }
 
-  checkUserLogued() {
+  checkUserLogued(): boolean {
+    //boolean
     const userLogued = localStorage.getItem('user');
 
-    return !!userLogued;
+    return !!userLogued; //= userLogued ? true : false
   }
 
-  async loginGoogle(){
+  async loginGoogle() {
     try {
-      return await this.afauth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
+      return await this.afauth.signInWithPopup(
+        new firebase.auth.GoogleAuthProvider()
+      );
     } catch (error) {
-      console.log("error login con Google:", error);
+      console.log('error login con Google:', error);
       return null;
     }
   }
-  obtenerUsuario(){
+  obtenerUsuarioGoogle() {
     return this.afauth.authState;
   }
-
 }

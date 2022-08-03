@@ -10,8 +10,9 @@
   <div *ngIf="usuarioGoogle | async as user">
     <div class="logo">
       <img [src]="user.photoURL" />
-      {{ user.displayName }}
     </div>
+    <b>{{ user.displayName }}</b>
+    <p>{{ user.email }}</p>
   </div>
 
   <ng-template #noRegister>

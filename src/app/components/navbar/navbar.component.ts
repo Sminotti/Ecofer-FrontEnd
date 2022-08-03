@@ -11,6 +11,7 @@ import { AuthService } from '../../services/auth-service.service';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
+  usuarioGoogle = this.authService.obtenerUsuarioGoogle(); //observable
   usuarioLogueado: Usuario = {
     id: 0,
     idEmpresa: 0,
@@ -37,6 +38,9 @@ export class NavbarComponent implements OnInit {
   }
   logout() {
     this.authService.logout();
+    this.usuarioGoogle.subscribe(res =>{
+      res=null
+    });
     this.router.navigate(['/']);
   }
   ngOnInit(): void {

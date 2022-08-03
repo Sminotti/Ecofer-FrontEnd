@@ -7,10 +7,12 @@ import {
 } from '@angular/forms';
 
 import { Usuario } from '../../model/IUsuario';
+import { UsuarioGoogle} from '../../model/iloginGoogle';
 import { LoginService } from '../../services/login.service';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth-service.service';
 import { UsuariosService } from 'src/app/services/usuarios.service';
+
 
 @Component({
   selector: 'app-login',
@@ -80,7 +82,7 @@ export class LoginComponent implements OnInit {
     this.authService
       .loginGoogle()
       .then((respuesta) => {
-        console.log('login con Google', respuesta);
+        console.log('login con Google', respuesta?.user);
         this.router.navigate(['/productos']);
       })
       .catch((error) => console.log("error loginGoogle:",error));

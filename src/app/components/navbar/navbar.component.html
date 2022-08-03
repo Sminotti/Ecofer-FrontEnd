@@ -11,25 +11,26 @@
 
     <span class="enviar_derecha"></span>
     <a
-      *ngIf="this.authService.checkLocalStorage()"
+    *ngIf="(this.authService.checkLocalStorage() || usuarioGoogle)"
+
       mat-button >
       <mat-icon>shopping_cart</mat-icon></a><!--carrito de compras-->
     <a
-      *ngIf="!this.authService.checkLocalStorage()"
+    *ngIf="!(this.authService.checkLocalStorage() && usuarioGoogle)"
       mat-button
       routerLink="login"
       routerLinkActive="active"
       ><mat-icon>perm_identity</mat-icon>Ingresar</a
     >
     <a
-      *ngIf="!this.authService.checkLocalStorage()"
+    *ngIf="!(this.authService.checkLocalStorage() && usuarioGoogle)"
       mat-button
       routerLink="registro"
       routerLinkActive="active"
       ><mat-icon>add_circle</mat-icon>Registrate</a
     >
     <a
-      *ngIf="this.authService.checkLocalStorage()"
+    *ngIf="(this.authService.checkLocalStorage() || usuarioGoogle)"
       mat-button
       (click)="logout()"
       routerLinkActive="active"
