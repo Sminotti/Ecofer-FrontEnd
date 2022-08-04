@@ -1,5 +1,5 @@
 export interface UsuarioGoogle {
-displayname?:string,
+displayName?:string,
 email?:string,
 uid?:string
 }

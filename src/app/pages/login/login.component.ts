@@ -7,7 +7,7 @@ import {
 } from '@angular/forms';
 
 import { Usuario } from '../../model/IUsuario';
-import { UsuarioGoogle} from '../../model/iloginGoogle';
+import { UsuarioGoogle } from 'src/app/model/IloginGoogle';
 import { LoginService } from '../../services/login.service';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth-service.service';
@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
     nombre: '',
     apellido: '',
   };
+usuarioGoogle: UsuarioGoogle | undefined;
 
   messageValidators!: UntypedFormGroup;
 
@@ -81,8 +82,9 @@ export class LoginComponent implements OnInit {
   ingresarGoogle() {
     this.authService
       .loginGoogle()
-      .then((respuesta) => {
-        console.log('login con Google', respuesta?.user);
+      .then((respuesta?: any) => {
+        this.usuarioGoogle = respuesta.user;
+        console.log('login con Google:', this.usuarioGoogle);
         this.router.navigate(['/productos']);
       })
       .catch((error) => console.log("error loginGoogle:",error));
@@ -94,11 +96,11 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     if (this.authService.checkLocalStorage()) {
-      //  observable
+   // si hay usuario en el localStorage va directo a la ruta
 
       this.router.navigate(['admin/productos']);
     }
-    this.ingresarGoogle();
+    //this.ingresarGoogle();
     this.messageValidators = this.fb.group({
       usuario: ['', [Validators.required]],
       password: ['', [Validators.required]],

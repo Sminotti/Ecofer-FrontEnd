@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import firebase from 'firebase/compat/app';
-import { UsuarioGoogle } from '../model/iloginGoogle';
 
 @Injectable({
   providedIn: 'root',
