@@ -39,7 +39,7 @@ export class ListarProductosComponent implements OnInit {
 
         this.arrayProductos = res;
         console.log("listando productos:",this.arrayProductos);
-       // intercepto los datos que entran a este link
+       //intercepto los datos que entran a este link
         this.abmProductosService.verificarInterceptor().subscribe(resp=>{
           console.log('interceptor: ',resp);
         });

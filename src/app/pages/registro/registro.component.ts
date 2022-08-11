@@ -98,7 +98,6 @@ export class RegistroComponent implements OnInit {
     try {
       if (this.formRegistro.valid) {
         const value = this.formRegistro.valid;
-        console.log('formulario valido desde algular: ', value);
 
         const datosRegistro = new FormData();
         datosRegistro.append(
@@ -149,19 +148,31 @@ export class RegistroComponent implements OnInit {
           this.formRegistro.get('password')?.value
         );
         datosRegistro.append('uid', this.file);
+//----------------------------------ACTUAL-----------------------------------------------------//
+this.registroService.registroUsuario(datosRegistro)
+.subscribe
+({
+  next: (dataRegistro) => {
+    alert("Te registraste correctamente,se envio un mail a tu casilla para activar tu cuenta.");
+    console.log('datos del registro', dataRegistro);
+    this.router.navigate(['']);
+},
+  error: (error) => console.log(error),
 
-        this.registroService.registroUsuario(datosRegistro).subscribe(
-          (dataRegistro: any) => {
-            alert("Te registraste correctamente,se envio un mail a tu casilla para activar tu cuenta.");
-            console.log('datos del registro', dataRegistro);
-            // this.formRegistro.reset();
-            this.router.navigate(['']);
-          },
+})
+//-----------------------DEPRECATE-------------------------------------------------------------//
+        // this.registroService.registroUsuario(datosRegistro)
+        // .subscribe(
+        //   (dataRegistro?: any) => { alert("Te registraste correctamente,se envio un mail a tu casilla para activar tu cuenta.");
+        //     console.log('datos del registro', dataRegistro);
+        //     // this.formRegistro.reset();
+        //     this.router.navigate(['']);
+        //   },
 
-          (err) => {
-            console.log(err);
-          }
-        );
+        //   (err) => {
+        //     console.log(err);
+        //   }
+        // );
       } else !this.formRegistro.valid;
       const value = this.formRegistro.valid;
       console.log('formulario valido desde algular: ', value);
