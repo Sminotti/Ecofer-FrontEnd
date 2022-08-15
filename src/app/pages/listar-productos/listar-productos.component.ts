@@ -44,7 +44,7 @@ export class ListarProductosComponent implements OnInit {
           console.log('interceptor: ',resp);
         });
       },
-      (err) => console.log(err)
+      (err) => console.log("Error page listarProductos:",err)
     );
   }
 
