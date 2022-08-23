@@ -8,9 +8,9 @@ const routes: Routes = [
     component:TablaProveedoresComponent
   },
 
-  {
-    path:'del/:id',
-  },
+  // {
+  //   path:'del/:id',
+  // },
   {
     path:'singleUpdate/:id',
     component:EditarProveedoresComponent

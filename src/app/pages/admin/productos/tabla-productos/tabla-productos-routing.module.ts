@@ -3,16 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { TablaProductosComponent } from './tabla-productos.component';
 import { EditarProductoComponent } from '../editar-producto/editar-producto.component';
 
-
 const routes: Routes = [
   {
     path: '',
     component: TablaProductosComponent,
   },
-  // {
-  //   path: 'del/:id',
 
-  // },
   {
     path: 'singleUpdate/:id',
     component: EditarProductoComponent,
