@@ -4,18 +4,13 @@ import { ListaTareasComponent } from './lista-tareas.component';
 
 const routes: Routes = [
   {
-    path:'',
-    component:ListaTareasComponent
+    path: '',
+    component: ListaTareasComponent,
   },
-
-  {
-    path: 'del/:id',
-  },
-
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class ListaTareasRoutingModule { }
+export class ListaTareasRoutingModule {}
