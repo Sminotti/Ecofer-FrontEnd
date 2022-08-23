@@ -65,7 +65,7 @@ usuarioGoogle: UsuarioGoogle | undefined;
           if (dataLogin['message'] == 'usuario encontrado') {
             this.usuariosService.usuarioLogueado$.subscribe((user: Usuario) => {
               this.usuario = user;
-              console.log('user observable:', user);
+              console.log('guardo el usuario en el Observable:', user);
             });
             this.authService.authenticate(dataLogin['token']); // llamo a la funcion del service que guarda el token en el LocalStorage
             this.authService.usuarioLogueado(dataLogin['user']); // llamo a la funcion del service que guarda el user en el LocalStorage

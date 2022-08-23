@@ -9,10 +9,10 @@ const routes: Routes = [
     path: '',
     component: TablaProductosComponent,
   },
-  {
-    path: 'del/:id',
+  // {
+  //   path: 'del/:id',
 
-  },
+  // },
   {
     path: 'singleUpdate/:id',
     component: EditarProductoComponent,

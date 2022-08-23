@@ -27,7 +27,6 @@ import { ListaTareasModule } from './pages/admin/lista-tareas/lista-tareas.modul
 
 import { AuthGuard } from './guards/auth.guard';
 
-
 const routes: Routes = [
   {
     path: '',
@@ -36,7 +35,7 @@ const routes: Routes = [
       import('src/app/pages/home/home.module').then((m) => HomeModule),
   },
 
-   {
+  {
     path: 'registro',
 
     loadChildren: () =>
@@ -196,22 +195,21 @@ const routes: Routes = [
 
   {
     path: 'admin/tareas',
-    loadChildren:()=>
-      import(
-        'src/app/pages/admin/lista-tareas/lista-tareas.module'
-    ).then((m)=> ListaTareasModule),
+    loadChildren: () =>
+      import('src/app/pages/admin/lista-tareas/lista-tareas.module').then(
+        (m) => ListaTareasModule
+      ),
     canActivate: [AuthGuard],
   },
 
   {
     path: 'admin/tareas/create',
-    loadChildren:()=>
-      import(
-        'src/app/pages/admin/lista-tareas/lista-tareas.module'
-    ).then((m)=> ListaTareasModule),
+    loadChildren: () =>
+      import('src/app/pages/admin/lista-tareas/lista-tareas.module').then(
+        (m) => ListaTareasModule
+      ),
     canActivate: [AuthGuard],
   },
-
 ];
 
 @NgModule({
