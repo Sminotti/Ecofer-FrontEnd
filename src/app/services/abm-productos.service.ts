@@ -32,11 +32,12 @@ export class AbmProductosService {
     id: string | undefined | number,
     actualizarProducto: any
   ): Observable<any> {
-    console.log('datos recibidos del acualizarProducto:', actualizarProducto);
+    console.log('datos recibidos del acualizarProducto:', actualizarProducto)
     return this.http.post(
       `${this.API_URI}/admin/productos/update/${id}`,
       actualizarProducto
     );
+
   }
 
   eliminarProducto(id: string) {
