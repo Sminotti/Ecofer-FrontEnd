@@ -24,6 +24,7 @@ import { Proveedores } from '../../../../model/Iproveedores';
 })
 export class EditarProductoComponent implements OnInit {
   // @HostBinding('class') classes = 'row';
+  panelOpenState = false;
 
   hide = true;
   file: any = [];

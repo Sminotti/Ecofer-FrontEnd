@@ -14,6 +14,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatCardModule} from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatFileUploadModule } from 'angular-material-fileupload';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { MatFileUploadModule } from 'angular-material-fileupload';
     MatGridListModule,
     MatSelectModule,
     MatFormFieldModule,
-    MatFileUploadModule
+    MatFileUploadModule,
+    MatExpansionModule
   ]
 })
 export class EditarProductoModule { }

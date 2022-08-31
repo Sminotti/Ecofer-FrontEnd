@@ -3,12 +3,14 @@ import {
   UntypedFormGroup,
   FormBuilder,
   Validators,
+
   UntypedFormControl,
 } from '@angular/forms';
 import { RegistroUsuariosService } from '../../services/registro-usuarios.service';
 import { Router } from '@angular/router';
 import { RegistroUsuario } from '../../model/IregistroUsuario';
 import { HandlerImageService } from '../../services/handler-image.service';
+
 
 @Component({
   selector: 'app-registro',
@@ -23,6 +25,8 @@ export class RegistroComponent implements OnInit {
   file: any = [];
   imagenPrevia: any;
   filename: string = '';
+
+
 
   constructor(
 
@@ -196,6 +200,9 @@ this.registroService.registroUsuario(datosRegistro)
       usuario: new UntypedFormControl(null, Validators.required),
       password: new UntypedFormControl(null, Validators.required),
       uid: new UntypedFormControl(null, Validators.required),
+
     });
+
   }
 }
+

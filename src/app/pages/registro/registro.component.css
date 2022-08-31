@@ -4,7 +4,6 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   height: 46rem;
-
 }
 
 .sombra {
@@ -13,13 +12,9 @@
 }
 
 .centrar {
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
-}
-
-input {
-  color: white;
 }
 
 form {
@@ -57,7 +52,3 @@ td {
   text-transform: none;
   margin-top: 10%;
 }
-
-
-
-

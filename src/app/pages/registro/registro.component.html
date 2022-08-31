@@ -248,6 +248,7 @@
             <mat-form-field appearance="fill">
               <mat-label>Email</mat-label>
               <input
+
                 autocomplete="off"
                 formControlName="mail"
                 type="email"
@@ -255,14 +256,18 @@
                 placeholder="Ex. pat@example.com"
               />
               <!--Validaciones-->
+
               <mat-error
                 *ngIf="
                   this.formRegistro.get('mail')?.errors &&
                   this.formRegistro.get('mail')?.dirty
                 "
               >
+                <p *ngIf="this.formRegistro.get('mail')?.hasError('required') && this.formRegistro.get('mail')?.hasError('mail')">
+                  Ingrese un email <strong> valido </strong>
+                </p>
                 <p *ngIf="this.formRegistro.get('mail')?.hasError('required')">
-                  El campo es obligatorio
+                  El campo es <strong> obligatorio </strong>
                 </p>
               </mat-error>
               <!--Validaciones-->
@@ -277,8 +282,9 @@
               name="uid"
               (change)="onFileChange($event)"
             />
+          </td>
+          <td>
             <div *ngIf="imagenPrevia">
-              <label>Preview</label>
               <div>
                 <img width="100px" [src]="imagenPrevia" alt="" />
               </div>
@@ -369,7 +375,7 @@
   </div>
   <div class="imagen centrar">
     <img
-      src="../../../assets/images/ecofer fondo.jpg"
+      src="https://res.cloudinary.com/doof8plzr/image/upload/v1661891087/Ecofer/NavBar/ph2dzdgjb7gvoaylaqdu.jpg"
       alt="Photo of a Shiba Inu"
     />
   </div>
