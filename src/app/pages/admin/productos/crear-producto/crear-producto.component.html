@@ -122,11 +122,9 @@
           <td>
             <mat-form-field appearance="fill">
               <mat-label>Descripcion</mat-label>
-              <textarea
-                matInput
-                autocomplete="off"
-              ></textarea>
+              <textarea matInput autocomplete="off"></textarea>
             </mat-form-field>
+          </td>
         </tr>
       </table>
       <table>
@@ -145,12 +143,38 @@
           </td>
           <td>
             <mat-form-field appearance="fill">
-              <mat-label>Observaciones del producto</mat-label>
+              <mat-label>Contacto</mat-label>
               <input
+                disabled="true"
+                style="color: aliceblue"
+                matInput
+                autocomplete="off"
+              />
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field appearance="fill">
+              <mat-label>Telefono</mat-label>
+              <input matInput autocomplete="off" />
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+
+      <table>
+        <tr>
+          <td>
+            <mat-form-field appearance="fill">
+              <mat-label>Observaciones del producto</mat-label>
+              <textarea
                 matInput
                 formControlName="observacionesProd"
                 autocomplete="off"
-              />
+              ></textarea>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Observaciones del proveedor</mat-label>
+              <textarea matInput autocomplete="off"></textarea>
             </mat-form-field>
           </td>
         </tr>
