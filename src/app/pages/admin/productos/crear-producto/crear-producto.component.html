@@ -2,72 +2,45 @@
   <mat-toolbar>
     <span>Crear producto</span>
   </mat-toolbar>
-  <div class="row">
-    <form class="sombra" [formGroup]="this.formCrearProducto">
-      <table cellspacing="0">
+
+  <form class="sombra" [formGroup]="this.formCrearProducto">
+    <div class="imagen-producto">
+      <div class="imagenPrevia">
+        <div *ngIf="imagenPrevia">
+          <div>
+            <img width="100px" [src]="imagenPrevia" alt="" />
+          </div>
+        </div>
+        <button mat-raised-button color="primary">
+          <label for="uid">Elija una imagen</label>
+        </button>
+        <input
+          style="display: none"
+          type="file"
+          id="uid"
+          formControlName="uid"
+          name="uid"
+          (change)="onFileChange($event)"
+        />
+      </div>
+    </div>
+    <div class="detalle-producto">
+      <table>
         <tr>
           <td>
-            <mat-form-field>
+            <mat-form-field appearance="fill">
               <mat-label>Producto</mat-label>
               <input matInput formControlName="nombre" autocomplete="off" />
             </mat-form-field>
           </td>
-
           <td>
-
             <mat-form-field appearance="fill">
-            <mat-label>Agente extintor</mat-label>
-            <mat-select  formControlName="idCategoria">
-              <div *ngFor="let categoriaProd of arrayCatProductos">
-                <mat-option [value]="categoriaProd.id">
-                  {{ categoriaProd.agExtintor }}
-                </mat-option>
-              </div>
-            </mat-select>
-          </mat-form-field>
-
-            <!-- <mat-form-field>
-            <mat-label>Categoria</mat-label>
-            <input matInput formControlName="idCategoria" autocomplete="off" />
-          </mat-form-field> -->
-
-          </td>
-        </tr>
-      </table>
-
-      <table cellspacing="0">
-        <tr>
-          <td>
-            <mat-form-field>
               <mat-label>Cantidad a ingresar</mat-label>
               <input matInput formControlName="unidades" autocomplete="off" />
             </mat-form-field>
           </td>
-
           <td>
-            <mat-form-field>
-              <mat-label>Capacidad</mat-label>
-              <input matInput formControlName="kilos" autocomplete="off" />
-            </mat-form-field>
-          </td>
-        </tr>
-      </table>
-
-      <table cellspacing="0">
-        <tr>
-          <td>
-            <mat-form-field>
-              <mat-label>Numero de serie</mat-label>
-              <input
-                matInput
-                formControlName="numeroSerie"
-                autocomplete="off"
-              />
-            </mat-form-field>
-          </td>
-
-          <td>
-            <mat-form-field>
+            <mat-form-field appearance="fill">
               <mat-label>Precio de costo</mat-label>
               <input
                 matInput
@@ -78,7 +51,7 @@
           </td>
 
           <td>
-            <mat-form-field>
+            <mat-form-field appearance="fill">
               <mat-label>Precio de venta</mat-label>
               <input
                 matInput
@@ -87,15 +60,81 @@
               />
             </mat-form-field>
           </td>
+          <td>
+            <mat-form-field appearance="fill">
+              <mat-label>Numero de serie</mat-label>
+              <input
+                matInput
+                formControlName="numeroSerie"
+                autocomplete="off"
+              />
+            </mat-form-field>
+          </td>
         </tr>
       </table>
-
-      <table cellspacing="0">
+      <table>
         <tr>
           <td>
-            <mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Agente extintor</mat-label>
+              <mat-select formControlName="idCategoria">
+                <div *ngFor="let categoriaProd of arrayCatProductos">
+                  <mat-option [value]="categoriaProd.id">
+                    {{ categoriaProd.agExtintor }}
+                  </mat-option>
+                </div>
+              </mat-select>
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field appearance="fill">
+              <mat-label>Clase</mat-label>
+              <input
+                disabled="true"
+                style="color: aliceblue"
+                matInput
+                autocomplete="off"
+              />
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field appearance="outline">
+              <mat-label>Aplicativos</mat-label>
+              <textarea
+                disabled="true"
+                style="color: aliceblue"
+                matInput
+                autocomplete="off"
+              ></textarea>
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field appearance="fill">
+              <mat-label>Fuegos</mat-label>
+              <textarea
+                disabled="true"
+                style="color: aliceblue"
+                matInput
+                autocomplete="off"
+              ></textarea>
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field appearance="fill">
+              <mat-label>Descripcion</mat-label>
+              <textarea
+                matInput
+                autocomplete="off"
+              ></textarea>
+            </mat-form-field>
+        </tr>
+      </table>
+      <table>
+        <tr>
+          <td>
+            <mat-form-field appearance="fill">
               <mat-label>Proveedor</mat-label>
-              <mat-select  formControlName="idProveedor">
+              <mat-select formControlName="idProveedor">
                 <div *ngFor="let proveedor of arrayProveedores">
                   <mat-option [value]="proveedor.id">{{
                     proveedor.nombreFantasia
@@ -103,21 +142,9 @@
                 </div>
               </mat-select>
             </mat-form-field>
-
-            <!-- <mat-form-field>
-              <mat-label>Proveedor</mat-label>
-              <input
-                matInput
-                formControlName="idProveedor"
-                autocomplete="off"
-              />
-            </mat-form-field> -->
-
-
           </td>
-
           <td>
-            <mat-form-field>
+            <mat-form-field appearance="fill">
               <mat-label>Observaciones del producto</mat-label>
               <input
                 matInput
@@ -126,31 +153,18 @@
               />
             </mat-form-field>
           </td>
-          <!-- ------------------------------------------input file------------------------------------------------ -->
-          <td>
-            <input
-              type="file"
-              id="uid"
-              formControlName="uid"
-              name="uid"
-              (change)="onFileChange($event)"
-            />
-            <div *ngIf="imagenPrevia">
-              <label for="">Preview</label>
-              <div >
-                  <img width="100px" [src]="imagenPrevia" alt="">
-              </div>
-          </div>
-          </td>
-
-          <!-- ------------------------------------------input file------------------------------------------------ -->
         </tr>
       </table>
-      <div class="row">
-        <button mat-raised-button color="primary" (click)="crearProducto()" [disabled]="!formCrearProducto.valid">
+      <table>
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="crearProducto()"
+          [disabled]="!formCrearProducto.valid"
+        >
           Crear Producto
         </button>
-      </div>
-    </form>
-  </div>
+      </table>
+    </div>
+  </form>
 </div>

@@ -1,63 +1,88 @@
+.fondoBody {
+
+  line-height: 1.6;
+  /* font-family: "Playfair Display", serif; */
+  padding: 0 1.5em;
+  height: 100vh;
+  width: 100%;
+}
+.sombra {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  padding: 2%;
+  box-shadow: 0 0 20px 0 rgba(255, 255, 255, 0.3);
+}
+.imagen-producto{
+  margin-right: 0.5rem;
+}
+.detalle-producto {
+  margin-left: 0.5rem;
+}
+.centrar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+form {
+  width: 95%;
+  margin: 5% auto;
+}
+table,
+mat-form-field,
+input {
+  width: 100%;
+}
+td {
+  padding-right: 8px;
+}
+button{
+  width: 100%;
+  margin-top: 1rem;
+}
 .card-vistaPrevia {
-  width:80%;
-  height:min-content;
-   background: #222222;
- }
- mat-card{
-   background: #222222;
-   margin-left: 2rem;
-   color: #fff;
- }
+  width: 80%;
+  height: min-content;
+  background: #222222;
+}
+mat-card {
 
- .fondoBody {
+  background: #222222;
+  margin-left: 2rem;
+  color: #fff;
+}
+img {
+  min-width: 200px;
+  max-height: 150px;
+}
 
-   line-height: 1.6;
-   /* font-family: "Playfair Display", serif; */
-   padding: 0 1.5em;
-   height: 100vh;
+/* .botonSelectImage {
+  margin-top: 3px;
+  border-radius: 5px;
+  color: black;
+  background: darkgray;
+  width: 200px;
+} */
 
-   width: 100%;
- }
+.logoRegister-login span {
+  color: #b70e21;
+}
 
- .sombra {
-   padding: 2%;
-   box-shadow: 0 0 20px 0 rgba(255, 255, 255, 0.3);
- }
+.logoRegister-login {
+  text-align: center;
+  font-size: 3em;
+  color: #fff;
+  text-transform: none;
+  margin-top: 10%;
+}
 
- .logoRegister-login span {
-   color: #b70e21;
- }
+mat-toolbar {
+  width: 95%;
+  margin: auto;
+  text-align: center;
+  background: #222222;
+  color: white;
+}
 
- .logoRegister-login {
-   text-align: center;
-   font-size: 3em;
-   color: #fff;
-   text-transform: none;
-   margin-top: 10%;
- }
-
- mat-toolbar {
-   width: 95%;
-   margin: auto;
-   text-align: center;
-   background: #222222;
-   color: white;
- }
- input {
-   background: #222222;
-   color: #fff;
- }
- mat-label {
-   color: white;
- }
-
- form {
-   width: 95%;
-   margin: 5% 0;
- }
-
- .centrar {
-   display: flex;
-   justify-content: center;
-   align-items: center;
- }
+mat-label {
+  color: white;
+}

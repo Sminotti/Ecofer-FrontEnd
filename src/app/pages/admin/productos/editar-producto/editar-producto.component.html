@@ -243,6 +243,7 @@
           mat-raised-button
           color="primary"
           (click)="actualizarProducto()"
+          [disabled]="!formActualizarProducto.valid"
         >
           Actualizar
         </button>
