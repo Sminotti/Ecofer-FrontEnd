@@ -248,7 +248,6 @@
             <mat-form-field appearance="fill">
               <mat-label>Email</mat-label>
               <input
-
                 autocomplete="off"
                 formControlName="mail"
                 type="email"
@@ -263,7 +262,12 @@
                   this.formRegistro.get('mail')?.dirty
                 "
               >
-                <p *ngIf="this.formRegistro.get('mail')?.hasError('required') && this.formRegistro.get('mail')?.hasError('mail')">
+                <p
+                  *ngIf="
+                    this.formRegistro.get('mail')?.hasError('required') &&
+                    this.formRegistro.get('mail')?.hasError('mail')
+                  "
+                >
                   Ingrese un email <strong> valido </strong>
                 </p>
                 <p *ngIf="this.formRegistro.get('mail')?.hasError('required')">
@@ -275,13 +279,20 @@
           </td>
           <!-- ------------------------------------------input file------------------------------------------------ -->
           <td>
+
+            <button mat-raised-button color="primary">
+              <label for="uid">Elija una imagen</label>
+            </button>
+
             <input
+              style="display: none"
               type="file"
               id="uid"
               formControlName="uid"
               name="uid"
               (change)="onFileChange($event)"
             />
+
           </td>
           <td>
             <div *ngIf="imagenPrevia">
