@@ -1,18 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ControlPanelComponent } from './control-panel.component';
+import { UsuariosComponent } from '../listar-usuarios/usuarios.component';
 
 const routes: Routes = [
-
   {
     path:'',
-    component:ControlPanelComponent
-  }
-
+    component:UsuariosComponent
+    },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class ControlPanelRoutingModule { }
+export class EditarUsuarioRoutingModule { }

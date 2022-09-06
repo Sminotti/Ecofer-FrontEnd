@@ -2,8 +2,9 @@
   <div *ngIf="this.authService.checkLocalStorage()">
     <div class="logo" *ngFor="let user of usuario">
       <img [src]="user.uid" />
-      <h1>{{ this.user.usuario }}</h1>
-      <h2>{{ this.user.nombre }} {{ this.user.idEmpresa }}</h2>
+      <p>{{ this.user.usuario }}</p>
+      <!-- <p>{{ this.user.role }}</p> no agarra el role-->
+      <p>{{ this.user.apellido }} {{this.user.nombre}}</p>
     </div>
   </div>
 
@@ -12,7 +13,7 @@
       <img [src]="user.photoURL" />
     </div>
     <b>{{ user.displayName }}</b>
-    <p>{{ user.email }}</p>
+
   </div>
 
   <ng-template #noRegister>
@@ -54,7 +55,7 @@
     <a
       mat-list-item
       routerLinkActive="list-item-active"
-      routerLink="controlPanel"
+      routerLink="admin/controlPanel"
     >
       <mat-icon>build</mat-icon> Panel de control
     </a>
@@ -85,6 +86,13 @@
       routerLink="admin/tareas"
     >
       <mat-icon>admin_panel_settings</mat-icon> Listado de tareas
+    </a>
+    <a
+      mat-list-item
+      routerLinkActive="list-item-active"
+      routerLink="admin/usuarios"
+    >
+    <mat-icon>supervised_user_circle</mat-icon> Listado de empleados
     </a>
   </span>
 </mat-nav-list>

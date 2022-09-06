@@ -23,7 +23,9 @@ import { EditarProductoModule } from './pages/admin/productos/editar-producto/ed
 import { EditarProveedoresModule } from './pages/admin/proveedores/editar-proveedores/editar-proveedores.module';
 import { EditarCategoriaProdModule } from './pages/admin/categorias/categoria-prod/editar-categoria-prod/editar-categoria-prod.module';
 import { ControlPanelModule } from './pages/admin/control-panel/control-panel.module';
-import { ListaTareasModule } from './pages/admin/lista-tareas/lista-tareas.module';
+import { ListaTareasModule } from 'src/app/pages/admin/lista-tareas/lista-tareas.module';
+import { UsuariosModule } from 'src/app/pages/admin/usuarios/listar-usuarios/usuarios.module';
+import { EditarUsuarioModule } from 'src/app/pages/admin/usuarios/editar-usuario/editar-usuario.module';
 
 import { AuthGuard } from './guards/auth.guard';
 
@@ -208,6 +210,24 @@ const routes: Routes = [
       import('src/app/pages/admin/lista-tareas/lista-tareas.module').then(
         (m) => ListaTareasModule
       ),
+    canActivate: [AuthGuard],
+  },
+
+  {
+    path: 'admin/usuarios',
+    loadChildren: () =>
+      import(
+        'src/app/pages/admin/usuarios/listar-usuarios/usuarios.module'
+      ).then((m) => UsuariosModule),
+    canActivate: [AuthGuard],
+  },
+
+  {
+    path: 'admin/usuarios/update/:id',
+    loadChildren: () =>
+      import(
+        'src/app/pages/admin/usuarios/editar-usuario/editar-usuario.module'
+      ).then((m) => EditarUsuarioModule),
     canActivate: [AuthGuard],
   },
 ];
