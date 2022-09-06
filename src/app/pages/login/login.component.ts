@@ -65,7 +65,6 @@ usuarioGoogle: UsuarioGoogle | undefined;
           if (dataLogin['message'] == 'usuario encontrado') {
             this.usuariosService.usuarioLogueado$.subscribe((user: Usuario) => {
               this.usuario = user;
-              console.log('guardo el usuario en el Observable:', user);
             });
             this.authService.authenticate(dataLogin['token']); // llamo a la funcion del service que guarda el token en el LocalStorage
             this.authService.usuarioLogueado(dataLogin['user']); // llamo a la funcion del service que guarda el user en el LocalStorage
@@ -83,7 +82,7 @@ usuarioGoogle: UsuarioGoogle | undefined;
     this.authService
       .loginGoogle()
       .then((respuesta?: any) => {
-        this.usuarioGoogle = respuesta.user;
+        this.usuarioGoogle = respuesta;
         console.log('login con Google:', this.usuarioGoogle);
         this.router.navigate(['/productos']);
       })

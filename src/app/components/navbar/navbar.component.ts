@@ -45,7 +45,6 @@ export class NavbarComponent implements OnInit {
   }
   ngOnInit(): void {
     this.mostrarUsuarioLoguedo();
-
   }
   toggleSidebar() {
     this.toggleSidebarForMe.emit();

@@ -16,6 +16,10 @@ export class SideNavComponent {
 
   constructor(public authService: AuthService) {
     this.usuario = JSON.parse(localStorage.getItem('user')!); // se pone asi por si es null
-    console.log('usuario recuperado:', this.usuario);
+    if (this.usuario) {
+      console.log('usuario logueado no google:', this.usuario);
+    } else if (this.usuarioGoogle) {
+      console.log('usuario logueado google:', this.usuarioGoogle);
+    }
   }
 }
