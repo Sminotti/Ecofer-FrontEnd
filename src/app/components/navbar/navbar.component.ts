@@ -29,11 +29,12 @@ export class NavbarComponent implements OnInit {
     public authService: AuthService,
     private activatedRoute: ActivatedRoute,
   ) {}
+
   params = this.activatedRoute.snapshot.params; // tomo el id de params
   mostrarUsuarioLoguedo() {
     this.loginService.userLogued(this.params.id).subscribe((res:Usuario) => {
-      this.usuarioLogueado = res;
-      console.log("usuarioLoguedo-1:",this.usuarioLogueado)
+      return this.usuarioLogueado = res;
+
     });
   }
   logout() {
@@ -43,8 +44,9 @@ export class NavbarComponent implements OnInit {
     });
     this.router.navigate(['/']);
   }
-  ngOnInit(): void {
-    this.mostrarUsuarioLoguedo();
+  ngOnInit() {
+    console.log("mostrarUsuarioLoguedo-1:",this.usuarioLogueado)
+
   }
   toggleSidebar() {
     this.toggleSidebarForMe.emit();

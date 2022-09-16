@@ -94,7 +94,6 @@
           <td>
             <mat-form-field appearance="fill">
               <mat-label>Numero de serie</mat-label>
-
               <input
                 matInput
                 value="{{ producto.numeroSerie }}"
@@ -104,18 +103,36 @@
             </mat-form-field>
           </td>
           <td>
-            <mat-form-field appearance="outline">
-              <mat-label>Agente extintor</mat-label>
-              <mat-select
-                value="{{ producto.categoriaProducto }}"
+            <mat-form-field  appearance="fill">
+              <mat-label>Agente Extintor</mat-label>
+              <div class="inputCategoriaProd">
+
+              <input
+                style="color: aliceblue"
+                matInput
                 formControlName="idCategoria"
+                value="{{ producto.agenteExtintor }}"
+                autocomplete="off"
+              />
+
+              <mat-select
+                style="display: none"
+                id="idCategoria"
+                name="idCategoria"
+                formControlName="idCategoria"
+                (selectionChange)="categoriaSelected($event.value)"
               >
-                <div *ngFor="let categoriaProd of arrayCatProductos">
-                  <mat-option [value]="categoriaProd.id">
-                    {{ categoriaProd.agExtintor }}
-                  </mat-option>
-                </div>
+                <mat-option
+                  *ngFor="let categoriaProd of arrayCatProductos"
+                  [value]="categoriaProd.id"
+                >
+                  {{ categoriaProd.agExtintor }}
+                </mat-option>
               </mat-select>
+              <button mat-raised-button color="primary">
+                <label for="idCategoria">Cambiar categoria</label>
+              </button>
+            </div>
             </mat-form-field>
           </td>
           <td>
@@ -125,7 +142,7 @@
                 disabled="true"
                 style="color: aliceblue"
                 matInput
-                value="{{ producto.claseProducto }}"
+                value="{{ categoriaProd.clase }}"
                 autocomplete="off"
               />
             </mat-form-field>
@@ -141,7 +158,7 @@
                 disabled="true"
                 style="color: aliceblue"
                 matInput
-                value="{{ producto.aplicativos }}"
+                value="{{ categoriaProd.aplicativos }}"
                 autocomplete="off"
               ></textarea>
             </mat-form-field>
@@ -153,7 +170,7 @@
                 disabled="true"
                 style="color: aliceblue"
                 matInput
-                value="{{ producto.fuegos }}"
+                value="{{ categoriaProd.fuegos }}"
                 autocomplete="off"
               ></textarea>
             </mat-form-field>
@@ -162,8 +179,10 @@
             <mat-form-field appearance="fill">
               <mat-label>Descripcion</mat-label>
               <textarea
+                disabled="true"
+                style="color: aliceblue"
                 matInput
-                value="{{ producto.descripcion }}"
+                value="{{ categoriaProd.descripcion }}"
                 autocomplete="off"
               ></textarea>
             </mat-form-field>
@@ -176,10 +195,9 @@
           <td>
             <mat-form-field appearance="outline">
               <mat-label>Proveedor</mat-label>
-              <mat-select
-                value="{{ proveedor.nombreFantasia }}"
-                formControlName="idProveedor"
-              >
+
+              <mat-select formControlName="idProveedor">
+                {{ producto.nombreFantasia }}
                 <div *ngFor="let proveedor of arrayProveedores">
                   <mat-option [value]="proveedor.id">{{
                     proveedor.nombreFantasia
@@ -204,6 +222,8 @@
             <mat-form-field appearance="fill">
               <mat-label>Telefono</mat-label>
               <input
+                disabled="true"
+                style="color: aliceblue"
                 matInput
                 value="{{ producto.telefonoProv }}"
                 autocomplete="off"
@@ -229,6 +249,8 @@
             <mat-form-field appearance="fill">
               <mat-label>Observaciones del proveedor</mat-label>
               <textarea
+                disabled="true"
+                style="color: aliceblue"
                 matInput
                 value="{{ producto.observacionesProv }}"
                 autocomplete="off"

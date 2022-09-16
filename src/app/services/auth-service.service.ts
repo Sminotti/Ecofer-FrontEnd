@@ -59,7 +59,7 @@ export class AuthService {
     }
   }
   obtenerUsuarioGoogle() {
-    console.log("obtener usuario goolge:",this.afauth.authState);
+    console.log("obtener usuario goolge:",this.afauth.user);
     return this.afauth.authState;
   }
 }

@@ -13,7 +13,6 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth-service.service';
 import { UsuariosService } from 'src/app/services/usuarios.service';
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -33,7 +32,7 @@ export class LoginComponent implements OnInit {
     nombre: '',
     apellido: '',
   };
-usuarioGoogle: UsuarioGoogle | undefined;
+  usuarioGoogle: UsuarioGoogle | undefined;
 
   messageValidators!: UntypedFormGroup;
 
@@ -86,7 +85,7 @@ usuarioGoogle: UsuarioGoogle | undefined;
         console.log('login con Google:', this.usuarioGoogle);
         this.router.navigate(['/productos']);
       })
-      .catch((error) => console.log("error loginGoogle:",error));
+      .catch((error) => console.log('error loginGoogle:', error));
   }
 
   ingresarFacebook() {
@@ -95,7 +94,7 @@ usuarioGoogle: UsuarioGoogle | undefined;
 
   ngOnInit() {
     if (this.authService.checkLocalStorage()) {
-   // si hay usuario en el localStorage va directo a la ruta
+      // si hay usuario en el localStorage va directo a la ruta
 
       this.router.navigate(['admin/productos']);
     }

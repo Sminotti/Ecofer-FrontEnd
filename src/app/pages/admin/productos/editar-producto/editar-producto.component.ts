@@ -46,15 +46,16 @@ export class EditarProductoComponent implements OnInit {
     uid: '',
   };
   categoriaProd: CatProducto | any = {
-   // id: 0,
+    // id: 0,
     agExtintor: '',
     clase: '',
     descripcion: '',
     fuegos: '',
     aplicativos: '',
   };
+
   proveedor: Proveedores | any = {
-  //  id: 0,
+    //  id: 0,
     razonSocial: '',
     nombreFantasia: '',
     contacto: '',
@@ -81,7 +82,7 @@ export class EditarProductoComponent implements OnInit {
     precioVenta: new UntypedFormControl(''),
     unidades: new UntypedFormControl(''),
     imagenProducto: new UntypedFormControl(''),
-    borrarImagenAnterior: new UntypedFormControl('')
+    borrarImagenAnterior: new UntypedFormControl(''),
   });
 
   // en el constructor creo las variables
@@ -94,10 +95,11 @@ export class EditarProductoComponent implements OnInit {
     private router: Router,
     public fb: UntypedFormBuilder // se usa para crear la validaciones
   ) {}
+
   arrayCatProductos: CatProducto[] = [];
   arrayProveedores: Proveedores[] = [];
   params = this.activatedRoute.snapshot.params; // tomo el id de params
-  id_Producto = this.params.id;// capturo el id del producto a editar
+  id_Producto = this.params.id; // capturo el id del producto a editar
   // ---------------------------VALIDACIONES---------------------------------------------//
 
   private validarFile(event: any): Boolean {
@@ -125,7 +127,6 @@ export class EditarProductoComponent implements OnInit {
   // ---------------------------VALIDACIONES----------------------------------------//
 
   onFileChange(event: any) {
-
     const validacion = this.validarFile(event);
     const imagen = event.target.files[0];
     console.log('imagen:', imagen);
@@ -144,10 +145,17 @@ export class EditarProductoComponent implements OnInit {
     }
   }
 
-  listarCategoria() {
+  listarCategoria() {// Lista todas las categorias
     this.abmCategoriasProdService.listarCategorias().subscribe((res) => {
       console.log('arrayCategorias', res);
       this.arrayCatProductos = res;
+    });
+  }
+
+  categoriaSelected(id:string) { // Lista solo La que selecciono en el select de categorias
+    this.abmCategoriasProdService.listarCategoria(id).subscribe((res) => {
+      console.log('Categoria seleccionada:', res);
+      this.categoriaProd = res;
     });
   }
 
@@ -161,7 +169,6 @@ export class EditarProductoComponent implements OnInit {
   listarProductoActualizar() {
     this.abmProductosService.listarProductoUpdate(this.params.id).subscribe(
       (res) => {
-
         this.producto = res;
         console.log('producto:', res);
 
@@ -208,8 +215,7 @@ export class EditarProductoComponent implements OnInit {
     delete this.producto.idProducto;
 
     const formDatos = new FormData();
-    formDatos.set(
-      'nombre', this.formActualizarProducto.get('nombre')?.value);
+    formDatos.set('nombre', this.formActualizarProducto.get('nombre')?.value);
     formDatos.set(
       'idCategoria',
       this.formActualizarProducto.get('idCategoria')?.value
@@ -248,15 +254,12 @@ export class EditarProductoComponent implements OnInit {
     this.abmProductosService
       .actualizarProducto(this.params.id, formDatos)
       .subscribe(
-
         (res) => {
-
           alert('producto actualizado exitosamente');
           this.router.navigate(['admin/productos']);
         },
         (err) => console.log(err)
       );
-
   }
 
   ngOnInit(): void {

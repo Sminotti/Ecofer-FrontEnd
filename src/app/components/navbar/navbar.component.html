@@ -12,7 +12,9 @@
 
     <span class="enviar_derecha"></span>
     <!-- <a *ngIf="(this.authService.checkLocalStorage() || usuarioGoogle)"mat-button > -->
-    <a *ngIf="usuarioGoogle | async as user" mat-button routerLinkActive="active"
+    <a *ngIf="usuarioGoogle | async as user"
+      mat-button
+      routerLinkActive="active"
       ><mat-icon>shopping_cart</mat-icon></a
     ><!--carrito de compras-->
     <a
