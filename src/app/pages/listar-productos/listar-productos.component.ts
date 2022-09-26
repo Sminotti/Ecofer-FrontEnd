@@ -2,6 +2,7 @@ import { Component, HostBinding, OnInit } from '@angular/core';
 import { AbmProductosService } from '../../services/abm-productos.service';
 import { Producto } from '../../model/Iproductos';
 import { HandlerImageService } from '../../services/handler-image.service';
+import { FiltrosComponent } from '../../components/filtros/filtros.component'
 
 @Component({
   selector: 'app-listar-productos',

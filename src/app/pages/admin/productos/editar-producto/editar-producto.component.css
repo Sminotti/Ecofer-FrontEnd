@@ -18,15 +18,7 @@
 .detalle-producto {
   margin-left: 0.5rem;
 }
-.centrar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.inputCategoriaProd{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
+
 form {
   width: 95%;
   margin: 5% auto;
@@ -48,24 +40,11 @@ button{
   height: min-content;
   background: #222222;
 }
-mat-card {
 
-  background: #222222;
-  margin-left: 2rem;
-  color: #fff;
-}
 img {
   min-width: 200px;
   max-height: 150px;
 }
-
-/* .botonSelectImage {
-  margin-top: 3px;
-  border-radius: 5px;
-  color: black;
-  background: darkgray;
-  width: 200px;
-} */
 
 .logoRegister-login span {
   color: #b70e21;

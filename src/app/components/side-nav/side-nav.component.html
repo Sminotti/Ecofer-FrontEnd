@@ -4,16 +4,15 @@
       <img [src]="user.uid" />
       <p>{{ this.user.usuario }}</p>
       <!-- <p>{{ this.user.role }}</p> no agarra el role-->
-      <p>{{ this.user.apellido }} {{this.user.nombre}}</p>
+      <p>{{ this.user.apellido }} {{ this.user.nombre }}</p>
     </div>
   </div>
 
   <div *ngIf="usuarioGoogle | async as user">
     <div class="logo">
-      <img  [src]='user.photoURL' />
+      <img [src]="user.photoURL" />
+      <b>{{ user.displayName }}</b>
     </div>
-    <b>{{ user.displayName }}</b>
-
   </div>
 
   <ng-template #noRegister>
@@ -92,7 +91,7 @@
       routerLinkActive="list-item-active"
       routerLink="admin/usuarios"
     >
-    <mat-icon>supervised_user_circle</mat-icon> Listado de empleados
+      <mat-icon>supervised_user_circle</mat-icon> Listado de empleados
     </a>
   </span>
 </mat-nav-list>

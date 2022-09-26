@@ -24,12 +24,12 @@ import { Proveedores } from '../../../../model/Iproveedores';
 })
 export class EditarProductoComponent implements OnInit {
   // @HostBinding('class') classes = 'row';
-  panelOpenState = false;
 
   hide = true;
   file: any = [];
   imagenPrevia: any;
   filename: string = '';
+
 
   // inicializo el objeto
   producto: Producto | any = {
@@ -95,7 +95,7 @@ export class EditarProductoComponent implements OnInit {
     private router: Router,
     public fb: UntypedFormBuilder // se usa para crear la validaciones
   ) {}
-
+show:boolean=true;
   arrayCatProductos: CatProducto[] = [];
   arrayProveedores: Proveedores[] = [];
   params = this.activatedRoute.snapshot.params; // tomo el id de params
@@ -152,18 +152,28 @@ export class EditarProductoComponent implements OnInit {
     });
   }
 
-  categoriaSelected(id:string) { // Lista solo La que selecciono en el select de categorias
+  categoriaSelected(id:any) { // Lista solo La que selecciono en el select de categorias
     this.abmCategoriasProdService.listarCategoria(id).subscribe((res) => {
       console.log('Categoria seleccionada:', res);
       this.categoriaProd = res;
     });
+
   }
+
 
   listarProveedores() {
     this.abmProveedoresService.listarProveedores().subscribe((res) => {
       console.log('arrayProveedores', res);
       this.arrayProveedores = res;
     });
+  }
+
+  proveedorSelected(id:string) {
+    this.abmProveedoresService.listarProveedor(id).subscribe((res)=>{
+      console.log('proveedor seleccionado:',res);
+      this.proveedor=res;
+      this.show=true;
+    })
   }
 
   listarProductoActualizar() {

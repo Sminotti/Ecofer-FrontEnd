@@ -103,11 +103,11 @@
             </mat-form-field>
           </td>
           <td>
-            <mat-form-field  appearance="fill">
+            <mat-form-field appearance="outline">
               <mat-label>Agente Extintor</mat-label>
-              <div class="inputCategoriaProd">
 
               <input
+                for="idCategoria"
                 style="color: aliceblue"
                 matInput
                 formControlName="idCategoria"
@@ -116,7 +116,7 @@
               />
 
               <mat-select
-                style="display: none"
+                mat-raised-button
                 id="idCategoria"
                 name="idCategoria"
                 formControlName="idCategoria"
@@ -129,10 +129,10 @@
                   {{ categoriaProd.agExtintor }}
                 </mat-option>
               </mat-select>
-              <button mat-raised-button color="primary">
-                <label for="idCategoria">Cambiar categoria</label>
-              </button>
-            </div>
+
+              <!-- <button mat-raised-button color="primary">
+                <label for="idCategoria">{{ producto.agenteExtintor }}</label>
+              </button> -->
             </mat-form-field>
           </td>
           <td>
@@ -196,14 +196,24 @@
             <mat-form-field appearance="outline">
               <mat-label>Proveedor</mat-label>
 
-              <mat-select formControlName="idProveedor">
+              <mat-select
+                (selectionChange)="proveedorSelected($event.value)"
+                id="idProveedor"
+                name="idProveedor"
+                formControlName="idProveedor"
+              >
                 {{ producto.nombreFantasia }}
-                <div *ngFor="let proveedor of arrayProveedores">
-                  <mat-option [value]="proveedor.id">{{
-                    proveedor.nombreFantasia
-                  }}</mat-option>
-                </div>
+
+                <mat-option
+                  *ngFor="let proveedor of arrayProveedores"
+                  [value]="proveedor.id"
+                >
+                  {{ proveedor.nombreFantasia }}
+                </mat-option>
               </mat-select>
+              <button mat-raised-button color="primary">
+                <label for="idProveedor">Proveedor</label>
+              </button>
             </mat-form-field>
           </td>
           <td>

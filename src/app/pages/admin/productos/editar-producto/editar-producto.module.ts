@@ -5,21 +5,19 @@ import { EditarProductoRoutingModule } from './editar-producto-routing.module';
 import { EditarProductoComponent } from './editar-producto.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {MatInputModule} from '@angular/material/input';
-import {MatButtonModule} from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatGridListModule} from '@angular/material/grid-list';
-import {MatSelectModule} from '@angular/material/select';
-import {MatCardModule} from '@angular/material/card';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatSelectModule } from '@angular/material/select';
+import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatFileUploadModule } from 'angular-material-fileupload';
-import {MatExpansionModule} from '@angular/material/expansion';
+
 
 @NgModule({
-  declarations: [
-    EditarProductoComponent
-  ],
+  declarations: [EditarProductoComponent],
   imports: [
     CommonModule,
     EditarProductoRoutingModule,
@@ -34,7 +32,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatSelectModule,
     MatFormFieldModule,
     MatFileUploadModule,
-    MatExpansionModule
-  ]
+
+  ],
 })
-export class EditarProductoModule { }
+export class EditarProductoModule {}
