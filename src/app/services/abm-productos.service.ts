@@ -54,6 +54,10 @@ export class AbmProductosService {
     );
   }
 
+  filtrarProducto(categoria:string){
+    return this.http.get(`${this.API_URI}/admin/productos/categoria/${categoria}`);
+  }
+
   // verifico el interceptor
   verificarInterceptor() {
     return this.http.get(`${this.API_URI}/productos`);

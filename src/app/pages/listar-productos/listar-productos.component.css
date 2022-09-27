@@ -11,6 +11,11 @@
   overflow: hidden;
 }
 
+.checkboxCategorias,h4 {
+  color: azure;
+  margin: 12px 0;
+}
+
 .btn-group-sm > .btn,
 .btn-sm {
   font-size: 27px;
@@ -46,9 +51,10 @@ mat-card-content p {
 }
 
 .seleccionar-productos {
-  background: aliceblue;
+  /* background: #424242; */
   margin-left: 0 auto;
-  color: #171718;
+  color:azure;
+
 }
 
 mat-card img {

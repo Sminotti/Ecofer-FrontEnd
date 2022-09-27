@@ -6,6 +6,7 @@ import { MatCardModule } from '@angular/material/card';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [ListarProductosComponent],
@@ -17,6 +18,7 @@ import { MatIconModule } from '@angular/material/icon';
     FormsModule,
     MatIconModule,
     ReactiveFormsModule,
+    MatCheckboxModule,
   ],
 })
 export class ListarProductosModule {}

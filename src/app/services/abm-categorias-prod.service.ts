@@ -33,6 +33,10 @@ export class AbmCategoriasProdService {
     return this.http.get(`${this.API_URI}/admin/categoriasProd/del/${id}`);
   }
 
+  filtrarPorClase(){
+
+  }
+
   // verifico el interceptor
   verificarInterceptor() {
     return this.http.get(`${this.API_URI}/admin/categoriasProd`);

@@ -1,7 +1,12 @@
 <div class="fondoBody">
   <div class="seleccionar-productos">
     <div id="btnCategorias">
-
+      <section class="checkboxCategorias">
+        <h4>Clase Extintores</h4>
+        <ng-container *ngFor="let clase of arrayCatProductos">
+          <p><mat-checkbox (click)="chequed(clase.id)" value="{{clase.id}}">{{clase.clase}}</mat-checkbox></p>
+        </ng-container>
+      </section>
     </div>
   </div>
 
@@ -24,7 +29,6 @@
         </mat-card-content>
 
         <mat-card-actions>
-
           <a
             type="button"
             class="btn btn-primary btn-sm"
@@ -34,7 +38,7 @@
           >
 
           <a type="button" class="btn btn-primary btn-sm"
-            ><span >$ {{producto.precioVenta}}</span></a
+            ><span>$ {{ producto.precioVenta }}</span></a
           >
 
           <a type="button" class="btn btn-primary btn-sm">
