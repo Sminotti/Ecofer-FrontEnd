@@ -19,6 +19,9 @@ export class AbmProductosService {
   listarProducto(id: string) {
     return this.http.get(`${this.API_URI}/productos/single/${id}`);
   }
+  filtrarPorCategoria(idCategoria: any) {
+    return this.http.get<Producto[]>(`${this.API_URI}/productos/categoria/${idCategoria}`);
+  }
 
   // rutas privadas//---------------------------------------------------------------//
   crearProducto(datos: any): Observable<Object> {
@@ -32,12 +35,11 @@ export class AbmProductosService {
     id: string | undefined | number,
     actualizarProducto: any
   ): Observable<any> {
-    console.log('datos recibidos del acualizarProducto:', actualizarProducto)
+    console.log('datos recibidos del acualizarProducto:', actualizarProducto);
     return this.http.post(
       `${this.API_URI}/admin/productos/update/${id}`,
       actualizarProducto
     );
-
   }
 
   eliminarProducto(id: string) {
@@ -54,8 +56,10 @@ export class AbmProductosService {
     );
   }
 
-  filtrarProducto(categoria:string){
-    return this.http.get(`${this.API_URI}/admin/productos/categoria/${categoria}`);
+  filtrarProducto(idCategoria: string) {
+    return this.http.get(
+      `${this.API_URI}/admin/productos/categoria/${idCategoria}`
+    );
   }
 
   // verifico el interceptor

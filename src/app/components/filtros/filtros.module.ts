@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { FiltrosRoutingModule } from './filtros-routing.module';
 import { FiltrosComponent } from './filtros.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
@@ -11,11 +10,10 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
   ],
   imports: [
     CommonModule,
-    FiltrosRoutingModule,
     MatCheckboxModule
   ],
   exports:[
-    FiltrosRoutingModule
+    FiltrosRoutingModule,FiltrosComponent
   ]
 })
 export class FiltrosModule { }

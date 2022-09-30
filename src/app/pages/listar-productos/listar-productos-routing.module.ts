@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ListarProductosComponent } from './listar-productos.component';
-
 import { FormProdComponent } from 'src/app/components/form-prod/form-prod.component';
 
 const routes: Routes = [
@@ -13,7 +12,10 @@ const routes: Routes = [
     path: 'single/:id',
     component: FormProdComponent,
   },
-
+  {
+    path: 'categoria/:categoria',
+    component: ListarProductosComponent,
+  },
 ];
 
 @NgModule({

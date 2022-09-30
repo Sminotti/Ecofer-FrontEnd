@@ -1,9 +1,7 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
 import { AbmProductosService } from '../../services/abm-productos.service';
-import { AbmCategoriasProdService } from 'src/app/services/abm-categorias-prod.service';
 import { Producto } from '../../model/Iproductos';
 import { HandlerImageService } from '../../services/handler-image.service';
-import { FormBuilder } from '@angular/forms';
 import { CatProducto } from 'src/app/model/IcatProd';
 
 @Component({
@@ -17,15 +15,37 @@ export class ListarProductosComponent implements OnInit {
   // creo un arreglo para que se almacenen todos aca
   arrayProductos: Producto[] = [];
   arrayCatProductos: CatProducto[] = [];
-  claseSeleccionada: CatProducto = {
-    clase: '',
-  };
+  arrayPordFiltrados: Producto[] = [];
+  categorias: string[] = [];
+
+  // inicializo el objeto
+  // producto: Producto []= [{
+  //   idProducto: 0,
+  //   unidadesProducto: 0,
+  //   nombre: '',
+  //   observacionesProd: '',
+  //   idCategoria: 0,
+  //   idProveedor: 0,
+  //   kilosProducto: 0,
+  //   precioVenta: 0,
+  //   precioCosto: 0,
+  //   numeroSerie: '',
+  //   imagenProducto:'' ,
+  //   //categoriaProductos
+  //   agenteExtintor: '',
+  //   claseProducto: '',
+  //   fuegos: '',
+  //   descripcion: '',
+  //   aplicativos: '',
+  //   //Proveedores
+  //   nombreFantasia: '',
+  //   contactoProv: '',
+  //   telefonoProv: '',
+  // }];
 
   constructor(
-    private _formBuilder: FormBuilder,
     private abmProductosService: AbmProductosService,
-    private handlerImageService: HandlerImageService,
-    private abmCategoriasProdService: AbmCategoriasProdService
+    private handlerImageService: HandlerImageService
   ) {}
 
   imagenPrevia: any;
@@ -47,34 +67,33 @@ export class ListarProductosComponent implements OnInit {
         this.arrayProductos = res;
         console.log('listando productos:', this.arrayProductos);
         //intercepto los datos que entran a este link
-        this.abmProductosService.verificarInterceptor().subscribe((resp) => {
-          console.log('interceptor: ', resp);
-        });
+        // this.abmProductosService.verificarInterceptor().subscribe((resp) => {
+        //   console.log('interceptor: ', resp);
+        // });
       },
       (err) => console.log('Error page listarProductos:', err)
     );
   }
 
-  listarCategoria() {
-    // Lista todas las categorias
-    this.abmCategoriasProdService.listarCategorias().subscribe(
-      (res) => {
-        console.log('arrayCategorias', res);
-        this.arrayCatProductos = res;
-      },
-      (err) => console.log('Error page listarCategoria:', err)
-    );
-  }
-
   chequed(categoria: any) {
-    this.abmProductosService.filtrarProducto(categoria).subscribe((res) => {
-      console.log('selecciono', res);
-      this.claseSeleccionada = res;
-    });
+    // se ejecuta cuando haces click en el checkBox
+    console.log('clase seleccionada fuera del try:', categoria);
+    // try {
+    //   this.abmProductosService
+    //     .filtrarPorCategoria(categoria)
+    //     .subscribe((res: any) => {
+    //       // res no trae nada ------------------------------->  OJO VER ACA!!!
+    //       console.log('selecciono', res);
+
+    //     });
+    // } catch (error) {
+    //   console.log('error', error);
+    // }
   }
 
   ngOnInit(): void {
     this.listarProductos(); // Listo todos los productos
-    this.listarCategoria(); // Listo todas las categorias
+    //this.listarCategoria(); // Listo todas las categorias
+    //this.chequed(this.idCategoria);
   }
 }
