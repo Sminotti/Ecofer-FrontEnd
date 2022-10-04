@@ -3,8 +3,15 @@
     <div id="btnCategorias">
       <section class="checkboxCategorias">
         <h4>Clase Extintores</h4>
-        <ng-container *ngFor="let clase of arrayProductos">
-          <p><mat-checkbox (click)="chequed(clase.idCategoria)" value="{{clase.idCategoria}}">{{clase.claseProducto}}</mat-checkbox></p>
+        <ng-container *ngFor="let clase of arrayCatProductos">
+          <p><mat-checkbox (change)="chequed(clase.id)"  value="{{clase.id}}">{{clase.clase}}</mat-checkbox></p>
+          <!-- <a
+          type="button"
+          class="btn btn-primary btn-sm"
+          [routerLink]="['categoria', clase.id]"
+        >
+         {{clase.clase}}
+         </a> -->
         </ng-container>
       </section>
     </div>

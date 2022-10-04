@@ -63,6 +63,15 @@ const routes: Routes = [
   },
 
   {
+    path: 'productos/categoria/categoria/:categoria',
+
+    loadChildren: () =>
+      import('src/app/pages/listar-productos/listar-productos.module').then(
+        (m) => ListarProductosModule
+      ),
+  },
+
+  {
     path: 'clientes/all',
 
     loadChildren: () =>

@@ -1,8 +1,12 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
+
 import { AbmProductosService } from '../../services/abm-productos.service';
+import { AbmCategoriasProdService } from 'src/app/services/abm-categorias-prod.service';
+
 import { Producto } from '../../model/Iproductos';
+import { CatProducto } from '../../model/IcatProd';
+
 import { HandlerImageService } from '../../services/handler-image.service';
-import { CatProducto } from 'src/app/model/IcatProd';
 
 @Component({
   selector: 'app-listar-productos',
@@ -15,37 +19,12 @@ export class ListarProductosComponent implements OnInit {
   // creo un arreglo para que se almacenen todos aca
   arrayProductos: Producto[] = [];
   arrayCatProductos: CatProducto[] = [];
-  arrayPordFiltrados: Producto[] = [];
-  categorias: string[] = [];
-
-  // inicializo el objeto
-  // producto: Producto []= [{
-  //   idProducto: 0,
-  //   unidadesProducto: 0,
-  //   nombre: '',
-  //   observacionesProd: '',
-  //   idCategoria: 0,
-  //   idProveedor: 0,
-  //   kilosProducto: 0,
-  //   precioVenta: 0,
-  //   precioCosto: 0,
-  //   numeroSerie: '',
-  //   imagenProducto:'' ,
-  //   //categoriaProductos
-  //   agenteExtintor: '',
-  //   claseProducto: '',
-  //   fuegos: '',
-  //   descripcion: '',
-  //   aplicativos: '',
-  //   //Proveedores
-  //   nombreFantasia: '',
-  //   contactoProv: '',
-  //   telefonoProv: '',
-  // }];
+  arrayProdFiltrados: Producto[] = [];
 
   constructor(
     private abmProductosService: AbmProductosService,
-    private handlerImageService: HandlerImageService
+    private handlerImageService: HandlerImageService,
+    private abmCategoriasProdService: AbmCategoriasProdService
   ) {}
 
   imagenPrevia: any;
@@ -74,26 +53,29 @@ export class ListarProductosComponent implements OnInit {
       (err) => console.log('Error page listarProductos:', err)
     );
   }
+  listarCategoria() {
+    this.abmCategoriasProdService.listarCategorias().subscribe((res) => {
+      console.log('categorias:', res);
+      this.arrayCatProductos = res;
+    });
+  }
 
   chequed(categoria: any) {
     // se ejecuta cuando haces click en el checkBox
-    console.log('clase seleccionada fuera del try:', categoria);
-    // try {
-    //   this.abmProductosService
-    //     .filtrarPorCategoria(categoria)
-    //     .subscribe((res: any) => {
-    //       // res no trae nada ------------------------------->  OJO VER ACA!!!
-    //       console.log('selecciono', res);
-
-    //     });
-    // } catch (error) {
-    //   console.log('error', error);
-    // }
+    try {
+      this.abmProductosService
+        .filtrarPorCategoria(categoria)
+        .subscribe((res) => {
+          this.arrayProductos = res;
+          console.log('selecciono', this.arrayProductos);
+        });
+    } catch (error) {
+      console.log('error');
+    }
   }
 
   ngOnInit(): void {
     this.listarProductos(); // Listo todos los productos
-    //this.listarCategoria(); // Listo todas las categorias
-    //this.chequed(this.idCategoria);
+    this.listarCategoria(); // Listo todas las categoria
   }
 }
