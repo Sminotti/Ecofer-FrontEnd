@@ -25,7 +25,8 @@ export class ListarProductosComponent implements OnInit {
     private abmProductosService: AbmProductosService,
     private handlerImageService: HandlerImageService,
     private abmCategoriasProdService: AbmCategoriasProdService
-  ) {}
+  )
+  {}
 
   imagenPrevia: any;
 
@@ -54,6 +55,10 @@ export class ListarProductosComponent implements OnInit {
     );
   }
   listarCategoria() {
+    // this.abmProductosService.categorias().subscribe((res) => {
+    //   console.log('categorias:', res);
+    //   this.arrayCatProductos = res;
+    // });
     this.abmCategoriasProdService.listarCategorias().subscribe((res) => {
       console.log('categorias:', res);
       this.arrayCatProductos = res;

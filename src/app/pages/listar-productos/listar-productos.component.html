@@ -1,19 +1,17 @@
 <div class="fondoBody">
   <div class="seleccionar-productos">
-    <div id="btnCategorias">
-      <section class="checkboxCategorias">
-        <h4>Clase Extintores</h4>
-        <ng-container *ngFor="let clase of arrayCatProductos">
-          <p><mat-checkbox (change)="chequed(clase.id)"  value="{{clase.id}}">{{clase.clase}}</mat-checkbox></p>
-          <!-- <a
-          type="button"
-          class="btn btn-primary btn-sm"
-          [routerLink]="['categoria', clase.id]"
-        >
-         {{clase.clase}}
-         </a> -->
-        </ng-container>
-      </section>
+    <label>CATEGORIAS</label>
+    <div class="filtros">
+      <ng-container *ngFor="let clase of arrayCatProductos">
+      <input
+        type="radio"
+        name="radio_filtro"
+        id="{{ clase.id }}"
+        (change)="chequed(clase.id)"
+        value="{{ clase.id }}"
+      />
+      <label for="{{ clase.id }}">{{ clase.clase }}</label>
+      </ng-container>
     </div>
   </div>
 

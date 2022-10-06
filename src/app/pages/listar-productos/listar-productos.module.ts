@@ -6,7 +6,8 @@ import { MatCardModule } from '@angular/material/card';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
-import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
   declarations: [ListarProductosComponent],
@@ -18,7 +19,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     FormsModule,
     MatIconModule,
     ReactiveFormsModule,
-    MatCheckboxModule,
+    MatRadioModule,
+    MatFormFieldModule,
   ],
 })
 export class ListarProductosModule {}

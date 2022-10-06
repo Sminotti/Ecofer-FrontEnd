@@ -12,10 +12,6 @@ const routes: Routes = [
     path: 'single/:id',
     component: FormProdComponent,
   },
-  // {
-  //   path: 'categoria/:categoria',
-  //   component: ListarProductosComponent,
-  // },
 ];
 
 @NgModule({
