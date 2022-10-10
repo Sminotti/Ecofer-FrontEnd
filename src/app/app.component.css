@@ -4,6 +4,8 @@ mat-sidenav {
   background-color: rgb(112, 6, 6);
 }
 mat-sidenav-container {
+  color: #666;
+  font-family: Proxima Nova,-apple-system,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif;
   background-color: #181818;
 min-height:88vh;
 }

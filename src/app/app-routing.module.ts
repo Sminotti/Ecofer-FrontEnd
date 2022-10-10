@@ -32,6 +32,7 @@ import { AuthGuard } from './guards/auth.guard';
 const routes: Routes = [
   {
     path: '',
+    title: 'Home',
 
     loadChildren: () =>
       import('src/app/pages/home/home.module').then((m) => HomeModule),
@@ -39,6 +40,7 @@ const routes: Routes = [
 
   {
     path: 'registro',
+    title: 'Registro de usuario',
 
     loadChildren: () =>
       import('src/app/pages/registro/registro.module').then(
@@ -48,6 +50,7 @@ const routes: Routes = [
 
   {
     path: 'login',
+    title: 'Login',
 
     loadChildren: () =>
       import('src/app/pages/login/login.modulel').then((m) => LoginModule),
@@ -55,6 +58,7 @@ const routes: Routes = [
 
   {
     path: 'productos',
+    title: 'Listado de productos',
 
     loadChildren: () =>
       import('src/app/pages/listar-productos/listar-productos.module').then(
@@ -73,6 +77,7 @@ const routes: Routes = [
 
   {
     path: 'clientes/all',
+    title: 'Nuestros clientes',
 
     loadChildren: () =>
       import('src/app/pages/clientes/clientes.module').then(
@@ -82,6 +87,7 @@ const routes: Routes = [
 
   {
     path: 'contacto',
+    title: 'Contacto',
 
     loadChildren: () =>
       import('src/app/pages/contacto/contacto.module').then(
@@ -91,6 +97,7 @@ const routes: Routes = [
 
   {
     path: 'faqs',
+    title: 'Preguntas frecuentes',
 
     loadChildren: () =>
       import('src/app/pages/faqs/faqs.module').then((m) => FaqsModule),
@@ -98,6 +105,7 @@ const routes: Routes = [
 
   {
     path: 'about',
+    title: 'Sobre nosotros',
 
     loadChildren: () =>
       import('src/app/pages/about/about.module').then((m) => AboutModule),
@@ -106,6 +114,7 @@ const routes: Routes = [
 
   {
     path: 'admin/controlPanel',
+    title: 'Panel de control',
 
     loadChildren: () =>
       import('src/app/pages/admin/control-panel/control-panel.module').then(
@@ -116,6 +125,7 @@ const routes: Routes = [
 
   {
     path: 'admin/categoriasProd',
+    title: 'Categorias de productos',
 
     loadChildren: () =>
       import(
@@ -126,6 +136,7 @@ const routes: Routes = [
 
   {
     path: 'admin/categoriasProd/create',
+    title: 'Crear categoria',
 
     loadChildren: () =>
       import(
@@ -136,6 +147,7 @@ const routes: Routes = [
 
   {
     path: 'admin/categoriasProd/update/:id',
+    title: 'Actualizar categoria',
 
     loadChildren: () =>
       import(
@@ -146,6 +158,7 @@ const routes: Routes = [
 
   {
     path: 'admin/productos',
+    title: 'Tabla de productos',
 
     loadChildren: () =>
       import(
@@ -156,6 +169,7 @@ const routes: Routes = [
 
   {
     path: 'admin/productos/create',
+    title: 'crear producto nuevo',
 
     loadChildren: () =>
       import(
@@ -166,6 +180,7 @@ const routes: Routes = [
 
   {
     path: 'admin/productos/update/:id',
+    title: 'Actualizar producto',
 
     loadChildren: () =>
       import(
@@ -176,6 +191,7 @@ const routes: Routes = [
 
   {
     path: 'admin/proveedores',
+    title: 'Tabla de proveedores',
 
     loadChildren: () =>
       import(
@@ -186,6 +202,7 @@ const routes: Routes = [
 
   {
     path: 'admin/proveedores/create',
+    title: 'Crear proveedores',
 
     loadChildren: () =>
       import(
@@ -196,6 +213,7 @@ const routes: Routes = [
 
   {
     path: 'admin/proveedores/update/:id',
+    title: 'Actualizar proveedores',
 
     loadChildren: () =>
       import(
@@ -206,6 +224,8 @@ const routes: Routes = [
 
   {
     path: 'admin/tareas',
+    title: 'Panel de tareas',
+
     loadChildren: () =>
       import('src/app/pages/admin/lista-tareas/lista-tareas.module').then(
         (m) => ListaTareasModule
@@ -224,6 +244,8 @@ const routes: Routes = [
 
   {
     path: 'admin/usuarios',
+    title:"Empleados",
+
     loadChildren: () =>
       import(
         'src/app/pages/admin/usuarios/listar-usuarios/usuarios.module'

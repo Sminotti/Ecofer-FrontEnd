@@ -25,8 +25,7 @@ export class ListarProductosComponent implements OnInit {
     private abmProductosService: AbmProductosService,
     private handlerImageService: HandlerImageService,
     private abmCategoriasProdService: AbmCategoriasProdService
-  )
-  {}
+  ) {}
 
   imagenPrevia: any;
 
@@ -46,19 +45,11 @@ export class ListarProductosComponent implements OnInit {
       (res) => {
         this.arrayProductos = res;
         console.log('listando productos:', this.arrayProductos);
-        //intercepto los datos que entran a este link
-        // this.abmProductosService.verificarInterceptor().subscribe((resp) => {
-        //   console.log('interceptor: ', resp);
-        // });
       },
       (err) => console.log('Error page listarProductos:', err)
     );
   }
   listarCategoria() {
-    // this.abmProductosService.categorias().subscribe((res) => {
-    //   console.log('categorias:', res);
-    //   this.arrayCatProductos = res;
-    // });
     this.abmCategoriasProdService.listarCategorias().subscribe((res) => {
       console.log('categorias:', res);
       this.arrayCatProductos = res;
@@ -77,6 +68,10 @@ export class ListarProductosComponent implements OnInit {
     } catch (error) {
       console.log('error');
     }
+  }
+
+  eliminarFiltros() {
+    this.listarProductos();
   }
 
   ngOnInit(): void {

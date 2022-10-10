@@ -7,12 +7,6 @@
   overflow: hidden;
 }
 
-.checkboxCategorias,
-h4 {
-  color: azure;
-  margin: 12px 0;
-}
-
 .btn-group-sm > .btn,
 .btn-sm {
   font-size: 27px;
@@ -38,7 +32,7 @@ mat-card-actions button a {
 }
 
 mat-card-content p {
-  color: black;
+  color:aliceblue;
 }
 
 .grid-container {
@@ -75,17 +69,17 @@ mat-card img {
   align-items: flex-start;
 }
 
-/* .filtros input[type="radio"] {
+.filtros input[type="radio"] {
   display: none;
-} */
+}
 
 .filtros label {
-  color: rgb(241, 88, 12);
+  color: #666;
   margin: 5px;
-  background: rgba(230, 10, 10, 0.1);
-  padding: 5px 5px;
-  display: inline-block;
-  border-radius: 0.5em;
+  float: left;
+  font-size: 14px;
+  font-weight: 500;
+  margin-left: 0;
   cursor: pointer;
 }
 

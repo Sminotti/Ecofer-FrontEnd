@@ -22,9 +22,6 @@ export class AbmProductosService {
   filtrarPorCategoria(idCategoria: any) {
     return this.http.get<Producto[]>(`${this.API_URI}/productos/categoria/${idCategoria}`);
   }
-  categorias() {
-    return this.http.get<CatProducto[]>(`${this.API_URI}/productos`);
-  }
 
   // rutas privadas//---------------------------------------------------------------//
   crearProducto(datos: any): Observable<Object> {

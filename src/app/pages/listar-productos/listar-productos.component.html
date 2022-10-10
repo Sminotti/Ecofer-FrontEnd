@@ -2,15 +2,22 @@
   <div class="seleccionar-productos">
     <label>CATEGORIAS</label>
     <div class="filtros">
-      <ng-container *ngFor="let clase of arrayCatProductos">
+      <label for="eliminaFiltros">Eliminar filtros</label>
       <input
         type="radio"
-        name="radio_filtro"
-        id="{{ clase.id }}"
-        (change)="chequed(clase.id)"
-        value="{{ clase.id }}"
+        name="eliminar_Filtors"
+        id="eliminaFiltros"
+        (change)="eliminarFiltros()"
       />
-      <label for="{{ clase.id }}">{{ clase.clase }}</label>
+      <ng-container *ngFor="let clase of arrayCatProductos">
+        <input
+          type="radio"
+          name="radio_filtro"
+          id="{{ clase.id }}"
+          (change)="chequed(clase.id)"
+          value="{{ clase.id }}"
+        />
+        <label for="{{ clase.id }}">{{ clase.clase }}</label>
       </ng-container>
     </div>
   </div>
@@ -26,11 +33,16 @@
           </mat-card-subtitle>
         </mat-card-header>
 
-        <img mat-card-image src="{{ producto.imagenProducto }}" />
+        <img
+          mat-card-image
+          img
+          alt="Imagen del producto"
+          src="{{ producto.imagenProducto }}"
+        />
 
         <mat-card-content>
-          <p>Aplicativos:{{ producto.aplicativos }}</p>
-          <p>Fuegos:{{ producto.fuegos }}</p>
+          <p>Aplicativos: {{ producto.aplicativos }}</p>
+          <p>Fuegos: {{ producto.fuegos }}</p>
         </mat-card-content>
 
         <mat-card-actions>
