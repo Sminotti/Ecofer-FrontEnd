@@ -9,15 +9,15 @@
         id="eliminaFiltros"
         (change)="eliminarFiltros()"
       />
-      <ng-container *ngFor="let clase of arrayCatProductos">
+      <ng-container *ngFor="let filtros of arrayProdFiltrados">
         <input
           type="radio"
           name="radio_filtro"
-          id="{{ clase.id }}"
-          (change)="chequed(clase.id)"
-          value="{{ clase.id }}"
+          id="{{ filtros.idCategoria }}"
+          (change)="chequed(filtros.idCategoria)"
+          value="{{ filtros.idCategoria }}"
         />
-        <label for="{{ clase.id }}">{{ clase.clase }}</label>
+        <label for="{{ filtros.idCategoria }}">{{ filtros.claseProducto }}</label>
       </ng-container>
     </div>
   </div>
