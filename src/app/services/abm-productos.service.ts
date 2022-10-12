@@ -20,7 +20,9 @@ export class AbmProductosService {
     return this.http.get(`${this.API_URI}/productos/single/${id}`);
   }
   filtrarPorCategoria(idCategoria: any) {
-    return this.http.get<Producto[]>(`${this.API_URI}/productos/categoria/${idCategoria}`);
+    return this.http.get<Producto[]>(
+      `${this.API_URI}/productos/categoria/${idCategoria}`
+    );
   }
 
   // rutas privadas//---------------------------------------------------------------//

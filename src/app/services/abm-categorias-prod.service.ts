@@ -14,9 +14,7 @@ export class AbmCategoriasProdService {
   listarCategorias() {
     return this.http.get<CatProducto[]>(`${this.API_URI}/admin/categoriasProd`);
   }
-  listarCategoriasProd() {
-    return this.http.get<CatProducto[]>(`${this.API_URI}/productos`);
-  }
+
   listarCategoria(id: string) {
     return this.http.get(`${this.API_URI}/admin/categoriasProd/singleUpdate/${id}`);
   }

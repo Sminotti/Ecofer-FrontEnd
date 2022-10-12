@@ -7,6 +7,7 @@ import { Producto } from '../../model/Iproductos';
 import { CatProducto } from '../../model/IcatProd';
 
 import { HandlerImageService } from '../../services/handler-image.service';
+import { Filtros } from 'src/app/model/Ifiltros';
 
 @Component({
   selector: 'app-listar-productos',
@@ -19,7 +20,7 @@ export class ListarProductosComponent implements OnInit {
   // creo un arreglo para que se almacenen todos aca
   arrayProductos: Producto[] = [];
   arrayCatProductos: CatProducto[] = [];
-  arrayProdFiltrados: Producto[] = [];
+  arrayProdFiltrados: any[] = [];
 
   constructor(
     private abmProductosService: AbmProductosService,
@@ -45,15 +46,30 @@ export class ListarProductosComponent implements OnInit {
       (res) => {
         this.arrayProductos = res;
         console.log('listando productos:', this.arrayProductos);
+        this.listarCategoria();
       },
       (err) => console.log('Error page listarProductos:', err)
     );
   }
   listarCategoria() {
-    this.abmCategoriasProdService.listarCategorias().subscribe((res) => {
-      console.log('categorias:', res);
-      this.arrayCatProductos = res;
-    });
+    try {
+      const result = this.arrayProductos.map(
+        ({ idCategoria, claseProducto }) => ({
+          idCategoria,
+          claseProducto,
+        })
+      );
+
+      this.arrayProdFiltrados = result;
+      console.log('clases:', this.arrayProdFiltrados);
+
+      // const resultFiltrado = this.arrayProdFiltrados.reduce((arrayFiltrado,
+      //   cate) => Array.from(new Set([arrayFiltrado, cate])))
+      // console.log('clases:', resultFiltrado);
+
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   chequed(categoria: any) {
@@ -76,6 +92,6 @@ export class ListarProductosComponent implements OnInit {
 
   ngOnInit(): void {
     this.listarProductos(); // Listo todos los productos
-    this.listarCategoria(); // Listo todas las categoria
+    //this.listarCategoria(); // Listo todas las categoria
   }
 }
