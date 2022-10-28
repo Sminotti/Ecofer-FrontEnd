@@ -18,7 +18,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { RouterModule } from '@angular/router';
 import { MatFileUploadModule } from 'angular-material-fileupload';
 import { NgxDropzoneModule } from 'ngx-dropzone';
-import {MatDialogModule} from '@angular/material/dialog';
+
 
 @NgModule({
   declarations: [CrearProductoComponent],
@@ -40,7 +40,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatSelectModule,
     MatFileUploadModule,
     NgxDropzoneModule,
-    MatDialogModule,
+
   ],
 })
 export class CrearProductoModule {}

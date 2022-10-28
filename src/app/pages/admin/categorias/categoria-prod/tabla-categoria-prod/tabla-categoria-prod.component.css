@@ -1,12 +1,13 @@
 .fondoBody {
-
   /* line-height: 5; */
   font-family: "Playfair Display", serif;
-  padding:2rem;
+  padding: 2rem;
   min-height: 47rem;
 }
 
-table,mat-paginator, mat-toolbar {
+table,
+mat-paginator,
+mat-toolbar {
   width: 95%;
   margin: auto;
   text-align: center;
@@ -18,15 +19,12 @@ table,mat-paginator, mat-toolbar {
   color: white;
 }
 
-
-
 td,
 th {
   color: aliceblue;
-
 }
 
-.alinear-titulo{
+.alinear-titulo {
   display: flex;
   justify-content: center;
 }
@@ -54,8 +52,6 @@ th.mat-header-cell {
   box-shadow: 0 0 20px 0 rgba(255, 255, 255, 0.3);
 }
 
-
-
 mat-label {
   color: aliceblue;
 }
@@ -67,5 +63,3 @@ mat-label {
 .enviar_derecha {
   flex: 1 1 auto;
 }
-
-

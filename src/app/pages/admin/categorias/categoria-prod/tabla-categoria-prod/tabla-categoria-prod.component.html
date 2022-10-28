@@ -3,14 +3,16 @@
     <mat-toolbar>
       <span>Categorias de Productos</span>
       <span class="enviar_derecha"></span>
-      <button mat-raised-button color="warn">
-        <a
+      <button  (click)="openDialog()"  mat-raised-button color="warn">
+        <!-- <a
+
           class="nav-link"
           routerLink="/admin/categoriasProd/create"
           routerLinkActive="active"
         >
-          Crear categoria nueva</a
-        >
+          Crear categoria nueva
+          </a> -->
+          Crear categoria nueva
       </button>
     </mat-toolbar>
   </p>
@@ -24,6 +26,9 @@
       autocomplete="off"
     />
   </mat-form-field>
+
+  <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+
   <div class="contact-wrapper">
     <table
       mat-table

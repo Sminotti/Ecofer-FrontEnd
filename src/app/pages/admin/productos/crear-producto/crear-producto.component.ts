@@ -17,7 +17,7 @@ import { AbmCategoriasProdService } from '../../../../services/abm-categorias-pr
 import { AbmProveedoresService } from '../../../../services/abm-proveedores.service';
 import { AbmProductosService } from '../../../../services/abm-productos.service';
 import { HandlerImageService } from '../../../../services/handler-image.service';
-import { MatDialog } from '@angular/material/dialog';
+
 import { Observable } from 'rxjs';
 
 @Component({
@@ -33,8 +33,7 @@ export class CrearProductoComponent implements OnInit {
     private abmProveedoresService: AbmProveedoresService,
     private abmCategoriasProdService: AbmCategoriasProdService,
     private handlerImageService: HandlerImageService,
-    private router: Router,
-    private dialog: MatDialog
+    private router: Router
   ) {}
 
   file: any = [];
@@ -142,7 +141,7 @@ export class CrearProductoComponent implements OnInit {
         );
         formDatos.append('uid', this.file);
 
-//llamo al servio y creo el producto
+        //llamo al servio y creo el producto
         this.abmProductosService.crearProducto(formDatos).subscribe(
           (data) => {
             console.log('DATOS CARGADOS: ', data);

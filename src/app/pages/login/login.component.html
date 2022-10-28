@@ -23,6 +23,9 @@
                 <p *ngIf="this.formLogin.get('usuario')?.hasError('required')">
                   El campo es obligatorio
                 </p>
+                <p *ngIf="this.formLogin.get('usuario')?.hasError('minLength')">
+                  El minomo son 5 caracteres
+                </p>
               </mat-error>
               <!--Validaciones-->
             </mat-form-field>
@@ -67,17 +70,24 @@
           Ingresar
         </button>
       </div>
-      <br>
+      <br />
       <div class="loginRedSocial">
-        <button class="loginGoogle" mat-raised-button (click)="ingresarGoogle()">
+        <button
+          class="loginGoogle"
+          mat-raised-button
+          (click)="ingresarGoogle()"
+        >
           Ingresar con Google
         </button>
-        <button class="loginFacebook" mat-raised-button (click)="ingresarFacebook()">
+        <button
+          class="loginFacebook"
+          mat-raised-button
+          (click)="ingresarFacebook()"
+        >
           Ingresar con Facebook
         </button>
       </div>
     </form>
-
   </div>
 
   <div class="imagen centrar">

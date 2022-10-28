@@ -8,6 +8,7 @@ import {
 import { AbmProveedoresService } from '../../../../services/abm-proveedores.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Proveedores } from '../../../../model/Iproveedores';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-editar-proveedores',
@@ -44,11 +45,15 @@ export class EditarProveedoresComponent implements OnInit {
     observacionesProv: new UntypedFormControl(''),
   });
 
+
+  alerta: string = '';
+
   constructor(
     private abmProveedoresService: AbmProveedoresService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    public fb: UntypedFormBuilder // se usa para crear la validaciones
+    public fb: UntypedFormBuilder, // se usa para crear la validaciones
+    private _snackBar: MatSnackBar
   ) {}
 
   params = this.activatedRoute.snapshot.params; // tomo el id de params
@@ -75,18 +80,24 @@ export class EditarProveedoresComponent implements OnInit {
   }
 
   actualizarProveedor(datosDelForm: Proveedores) {
+    this.alerta = 'El producto fue actualizado con exito';
     this.abmProveedoresService
       .actualizarProveedor(this.params.id, datosDelForm)
       .subscribe(
         (res) => {
           console.log("datos del form:",datosDelForm);
+          this.openMessage(this.alerta);
           this.router.navigate(['admin/proveedores']);
         },
         (err) => console.log(err)
       );
 
-  }
 
+  }
+// funcion de mensaje de alerta
+openMessage(message: string) {
+  this._snackBar.open(message, '', { duration: 2000 });
+}
   ngOnInit(): void {
     this.listarProveedor();
   }

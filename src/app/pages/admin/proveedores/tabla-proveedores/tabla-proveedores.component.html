@@ -24,6 +24,9 @@
       autocomplete="off"
     />
   </mat-form-field>
+
+  <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+
   <div class="contact-wrapper">
     <table
       mat-table

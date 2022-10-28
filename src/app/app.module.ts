@@ -9,7 +9,7 @@ import { AbmProductosService } from './services/abm-productos.service';
 import { AbmCategoriasProdService } from './services/abm-categorias-prod.service';
 import { AbmProveedoresService } from './services/abm-proveedores.service';
 import { ListaTareasService } from './services/lista-tareas.service';
-
+//Angular Material
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -21,6 +21,7 @@ import { SideNavModule } from './components/side-nav/side-nav.module';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+
 import { environment } from 'src/environments/environment';
 
 @NgModule({
@@ -40,6 +41,7 @@ import { environment } from 'src/environments/environment';
     MatSidenavModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
+
     //MaterialComponentsModule//<-- aca agrego el modulo de material con los componentes
   ],
   providers: [

@@ -24,7 +24,10 @@
       autocomplete="off"
     />
   </mat-form-field>
-  <div class="contact-wrapper">
+
+  <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+
+  <div *ngIf="!loading" class="contact-wrapper">
     <table
       mat-table
       [dataSource]="dataSource"
@@ -39,10 +42,7 @@
       <ng-container matColumnDef="imagenProducto">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Imagen</th>
         <td mat-cell *matCellDef="let element">
-          <img
-
-            src="{{ element.imagenProducto }}"
-          />
+          <img src="{{ element.imagenProducto }}" />
         </td>
       </ng-container>
 

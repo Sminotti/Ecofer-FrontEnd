@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { AbmProductosService } from '../../../../services/abm-productos.service';
+import { MessagesService } from '../../../../services/messages.service';
 import { Producto } from '../../../../model/Iproductos';
 
 import { MatTableDataSource } from '@angular/material/table';
@@ -8,6 +9,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-tabla-productos',
@@ -15,8 +17,8 @@ import { Observable, Subscription } from 'rxjs';
   styleUrls: ['./tabla-productos.component.css'],
 })
 export class TablaProductosComponent implements OnInit {
-
-  displayedColumns: any[] = [// tomo los datos de get productos
+  displayedColumns: any[] = [
+    // tomo los datos de get productos
     'idProducto',
     'imagenProducto',
     'nombreProducto',
@@ -32,6 +34,8 @@ export class TablaProductosComponent implements OnInit {
 
   //creo un arreglo para que se almacenen todos aca
   arrayProductos: Producto[] = [];
+  loading: boolean = false;
+  alerta: string = '';
 
   // arrayDestroy:Array<Subscription> | undefined;
 
@@ -43,16 +47,19 @@ export class TablaProductosComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private abmProductosService: AbmProductosService
+    private abmProductosService: AbmProductosService,
+    //private messagesService: MessagesService
+    private _snackBar: MatSnackBar
   ) {}
-
-
 
   // traigo a la funcion listarProductos del service
   listarProductos() {
+    this.loading = true;
+
     this.abmProductosService.listarProductos().subscribe(
       (res) => {
-        console.log("Tabla-productos:",res);
+        this.loading = false;
+        console.log('Tabla-productos:', res);
         this.arrayProductos = res;
         this.dataSource.data = res;
       },
@@ -61,16 +68,24 @@ export class TablaProductosComponent implements OnInit {
   }
   // traigo la funcion eliminar Producto del services
   eliminarProducto(id: string) {
+    this.loading = true;
+    this.alerta = 'El producto fue eliminado con exito';
+
     this.abmProductosService.eliminarProducto(id).subscribe(
       (res) => {
-        console.log("se elemino:",res);
+        console.log('se elemino:', res);
+
         this.listarProductos();
+        this.openMessage(this.alerta);
       },
       (err) => console.log(err)
     );
     console.log(id);
   }
-
+  // funcion de mensaje de alerta
+  openMessage(message: string) {
+    this._snackBar.open(message, '', { duration: 2000 });
+  }
   // creo la funcion filter
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -83,7 +98,5 @@ export class TablaProductosComponent implements OnInit {
   }
   ngOnInit(): void {
     this.listarProductos(); // coloco aca la funcion listarProductos para que se ejecute cuando arranca el sistema
-
   }
-
 }

@@ -8,9 +8,7 @@ const routes: Routes = [
     path: '',
     component: TablaCategoriaProdComponent,
   },
-  // {
-  //   path: 'del/:id',
-  // },
+
   {
     path: 'singleUpdate/:id',
     component: EditarCategoriaProdComponent

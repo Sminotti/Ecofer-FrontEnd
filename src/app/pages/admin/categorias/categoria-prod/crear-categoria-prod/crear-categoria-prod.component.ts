@@ -1,7 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
+import { Component, Inject, OnInit } from '@angular/core';
+
+import {
+  UntypedFormGroup,
+  UntypedFormBuilder,
+  Validators,
+} from '@angular/forms';
 import { Router } from '@angular/router';
 import { AbmCategoriasProdService } from '../../../../../services/abm-categorias-prod.service';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-crear-categoria-prod',
@@ -11,11 +17,13 @@ import { AbmCategoriasProdService } from '../../../../../services/abm-categorias
 export class CrearCategoriaProdComponent implements OnInit {
   hide = true;
   messageValidators!: UntypedFormGroup;
+  botonHabilitado: boolean = false;
 
   constructor(
     public fb: UntypedFormBuilder, // se usa para crear la validaciones
     private router: Router, // private formControl: FormControl
-    private abmCategoriasProdService: AbmCategoriasProdService
+    private abmCategoriasProdService: AbmCategoriasProdService,
+    public dialog: MatDialog
   ) {}
 
   formCrearCategoriaProd = this.fb.group({
@@ -28,22 +36,25 @@ export class CrearCategoriaProdComponent implements OnInit {
 
   crearCategoriaProd() {
     if (this.formCrearCategoriaProd.valid) {
-      const value = this.formCrearCategoriaProd.valid;
-      console.log('formulario valido desde algular: ', value);
+      this.botonHabilitado = this.formCrearCategoriaProd.valid;
+      console.log('formulario valido desde algular: ', this.botonHabilitado);
       this.abmCategoriasProdService
         .crearCategoria(this.formCrearCategoriaProd.value)
         .subscribe(
           (data: any) => {
-            console.log(data);
-            this.formCrearCategoriaProd.reset();
+            console.log("Categoria agrehada:",data);
           },
+
           (err) => {
             console.log(err);
           }
+
         );
+        this.formCrearCategoriaProd.reset();
+
     } else !this.formCrearCategoriaProd.valid;
-    const value = this.formCrearCategoriaProd.valid;
-    console.log('formulario valido desde algular: ', value);
+    this.botonHabilitado = this.formCrearCategoriaProd.valid;
+    console.log('formulario valido desde algular: ', this.botonHabilitado);
   }
 
   ngOnInit(): void {
@@ -54,5 +65,9 @@ export class CrearCategoriaProdComponent implements OnInit {
       fuegos: ['', [Validators.required]],
       aplicativos: ['', [Validators.required]],
     });
+    console.log(
+      'this.formCrearCategoriaProd.valid:',
+      this.formCrearCategoriaProd.valid
+    );
   }
 }

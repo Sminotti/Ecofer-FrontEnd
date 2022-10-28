@@ -1,5 +1,4 @@
 .fondoBody {
-
   line-height: 1.6;
   /* font-family: "Playfair Display", serif; */
   padding: 0 1.5em;
@@ -12,7 +11,7 @@
   padding: 2%;
   box-shadow: 0 0 20px 0 rgba(255, 255, 255, 0.3);
 }
-.imagen-producto{
+.imagen-producto {
   margin-right: 0.5rem;
 }
 .detalle-producto {
@@ -30,12 +29,12 @@ form {
 table,
 mat-form-field,
 input {
-  width: 100%;
+  width: auto;
 }
 td {
   padding-right: 8px;
 }
-button{
+button {
   width: 100%;
   margin-top: 1rem;
 }
@@ -45,7 +44,6 @@ button{
   background: #222222;
 }
 mat-card {
-
   background: #222222;
   margin-left: 2rem;
   color: #fff;

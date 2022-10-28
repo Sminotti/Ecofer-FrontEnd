@@ -64,7 +64,6 @@ export class ListarProductosComponent implements OnInit {
       );
       // guardo el resultado en un Array
       this.arrayProdFiltrados = result;
-      console.log('clases:', this.arrayProdFiltrados);
 
       // elimino los repetidos
       const resultFiltrado = this.filtrarObjejosArrayService.eliminaDuplicados(
@@ -99,6 +98,5 @@ export class ListarProductosComponent implements OnInit {
 
   ngOnInit(): void {
     this.listarProductos(); // Listo todos los productos
-    //this.listarCategoria(); // Listo todas las categoria
   }
 }

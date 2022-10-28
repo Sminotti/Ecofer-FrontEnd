@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
   ) {}
 
   formLogin = new UntypedFormGroup({
-    usuario: new UntypedFormControl('', [Validators.required]),
+    usuario: new UntypedFormControl('', [Validators.required,Validators.minLength(5)]),
     password: new UntypedFormControl('', [Validators.required]),
   });
 
