@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import {
   UntypedFormBuilder,
   UntypedFormGroup,
@@ -8,6 +8,7 @@ import {
 import { ActivatedRoute, Router } from '@angular/router';
 import { CatProducto } from '../../../../../model/IcatProd';
 import { AbmCategoriasProdService } from '../../../../../services/abm-categorias-prod.service';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-editar-categoria-prod',
@@ -16,8 +17,9 @@ import { AbmCategoriasProdService } from '../../../../../services/abm-categorias
 })
 export class EditarCategoriaProdComponent implements OnInit {
   hide = true;
+  botonHabilitado: boolean = false;
 
-  categoriaProducto: CatProducto | any= {
+  categoriaProducto: CatProducto | any = {
     id: 0,
     agExtintor: '',
     clase: '',
@@ -25,8 +27,6 @@ export class EditarCategoriaProdComponent implements OnInit {
     fuegos: '',
     aplicativos: '',
   };
-
-  messageValidators!: UntypedFormGroup;
 
   formActualizarCatProd = new UntypedFormGroup({
     id: new UntypedFormControl(''),
@@ -41,13 +41,17 @@ export class EditarCategoriaProdComponent implements OnInit {
     private abmCategoriasProdService: AbmCategoriasProdService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    public fb: UntypedFormBuilder // se usa para crear la validaciones
-  ) {}
+    public fb: UntypedFormBuilder, // se usa para crear la validaciones
+    public dialog: MatDialog,
+    @Inject(MAT_DIALOG_DATA) public id: any
+  ) {
+    console.log('dentro del modal:', id);
+  }
 
   params = this.activatedRoute.snapshot.params; // tomo el id de params
 
   listarCategoriaProd() {
-    this.abmCategoriasProdService.listarCategoria(this.params.id).subscribe(
+    this.abmCategoriasProdService.listarCategoria(this.id).subscribe(
       (res) => {
         this.categoriaProducto = res;
         this.formActualizarCatProd.setValue({
@@ -65,11 +69,12 @@ export class EditarCategoriaProdComponent implements OnInit {
 
   actualizarCategoriaProd(datosDelForm: CatProducto) {
     this.abmCategoriasProdService
-      .actualizarCategoria(this.params.id, datosDelForm)
+      // .actualizarCategoria(this.params.id, datosDelForm)
+      .actualizarCategoria(this.id, datosDelForm)
       .subscribe(
         (res) => {
-          console.log("datos del form:",datosDelForm);
-          this.router.navigate(['/admin/categorias/categoria-prod']);
+          console.log('datos del form:', datosDelForm);
+          // this.router.navigate(['/admin/categorias/categoria-prod']);
         },
         (err) => console.log(err)
       );

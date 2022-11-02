@@ -3,18 +3,17 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { AbmCategoriasProdService } from '../../../../../services/abm-categorias-prod.service';
 import { CatProducto } from '../../../../../model/IcatProd';
 
+import { CrearCategoriaProdComponent } from '../crear-categoria-prod/crear-categoria-prod.component';
+import { EditarCategoriaProdComponent } from '../editar-categoria-prod/editar-categoria-prod.component';
+
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { CrearCategoriaProdComponent } from '../crear-categoria-prod/crear-categoria-prod.component';
-import {
-  MatDialog,
-  MatDialogRef,
-  MAT_DIALOG_DATA,
-} from '@angular/material/dialog';
+
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-tabla-categoria-prod',
@@ -42,7 +41,6 @@ export class TablaCategoriaProdComponent implements OnInit {
 
   loading: boolean = false;
   alerta: string = '';
-  animal: string | undefined;
   name: string | undefined;
 
   constructor(
@@ -91,11 +89,24 @@ export class TablaCategoriaProdComponent implements OnInit {
   openMessage(message: string) {
     this._snackBar.open(message, '', { duration: 2000 });
   }
-  // abro el modal
+  // abro el modal de crear categoria
   openDialog() {
-    const dialogRef = this.dialog.open(CrearCategoriaProdComponent);
-    dialogRef.afterClosed().subscribe(result => {
+    const dialogRef = this.dialog.open(CrearCategoriaProdComponent, {
+      disableClose: true,
+    });
+    dialogRef.afterClosed().subscribe((result) => {
       console.log(`Dialog result: ${result}`);
+    });
+  }
+  openDialogEdit(id?: string) {
+    console.log("id afuera del modal:",id);
+    // abro e modal de editar categoria
+    const dialogRef = this.dialog.open(EditarCategoriaProdComponent,{
+      disableClose: true,
+      data:id
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log(`DialogEdit result: ${result}`);
     });
   }
   // creo la funcion filter

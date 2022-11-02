@@ -13,6 +13,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCardModule} from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatGridListModule,
     MatSelectModule,
     MatFormFieldModule,
+    MatDialogModule,
   ]
 })
 export class EditarCategoriaProdModule { }

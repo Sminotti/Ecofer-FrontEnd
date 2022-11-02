@@ -1,61 +1,61 @@
 <div class="div fondoBody">
-<mat-dialog-content class="mat-typography fondoBody">
-  <mat-toolbar class="centrar">
-    <span>Crear Categoria Producto</span>
-  </mat-toolbar>
+  <mat-dialog-content class="mat-typography fondoBody">
+    <mat-toolbar class="centrar">
+      <span>Crear Categoria Producto</span>
+    </mat-toolbar>
 
-  <div class="row centrar">
-    <form class="sombra" [formGroup]="this.formCrearCategoriaProd">
-      <table mat-table matSort class="centrar">
-        <tr>
-          <td>
-            <mat-form-field class="max-widthInput" appearance="fill">
-              <mat-label>Agente extintor</mat-label>
-              <input matInput formControlName="agExtintor" />
-            </mat-form-field>
-          </td>
-          <td>
-            <mat-form-field class="max-widthInput" appearance="fill">
-              <mat-label>Clase</mat-label>
-              <input matInput formControlName="clase" />
-            </mat-form-field>
-          </td>
-          <td>
-            <mat-form-field class="max-widthInput" appearance="fill">
-              <mat-label>Descripcion</mat-label>
-              <input matInput formControlName="descripcion" />
-            </mat-form-field>
-          </td>
-          <td>
-            <mat-form-field class="max-widthInput" appearance="fill">
-              <mat-label>Fuegos</mat-label>
-              <input matInput formControlName="fuegos" />
-            </mat-form-field>
-          </td>
-          <td>
-            <mat-form-field class="max-widthInput" appearance="fill">
-              <mat-label>Aplicativos</mat-label>
-              <input matInput formControlName="aplicativos" />
-            </mat-form-field>
-          </td>
-        </tr>
-      </table>
+    <div class="row centrar">
+      <form class="sombra" [formGroup]="this.formCrearCategoriaProd">
+        <table mat-table matSort class="centrar">
+          <tr>
+            <td>
+              <mat-form-field class="max-widthInput" appearance="fill">
+                <mat-label>Agente extintor</mat-label>
+                <input matInput formControlName="agExtintor" />
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="max-widthInput" appearance="fill">
+                <mat-label>Clase</mat-label>
+                <input matInput formControlName="clase" />
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="max-widthInput" appearance="fill">
+                <mat-label>Descripcion</mat-label>
+                <input matInput formControlName="descripcion" />
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="max-widthInput" appearance="fill">
+                <mat-label>Fuegos</mat-label>
+                <input matInput formControlName="fuegos" />
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="max-widthInput" appearance="fill">
+                <mat-label>Aplicativos</mat-label>
+                <input matInput formControlName="aplicativos" />
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
 
-      <div class="row">
-        <button
-          mat-raised-button
-          color="primary"
-          (click)="crearCategoriaProd()"
-          [disabled]="!this.formCrearCategoriaProd.valid"
-        >
-          Ingresar categoria
-        </button>
-      </div>
-    </form>
-  </div>
-</mat-dialog-content>
+        <div class="row">
+          <button
+            mat-raised-button
+            color="primary"
+            (click)="crearCategoriaProd()"
+            [disabled]="!this.formCrearCategoriaProd.valid"
+          >
+            Ingresar categoria
+          </button>
+        </div>
+      </form>
+    </div>
+  </mat-dialog-content>
 
-<mat-dialog-actions align="end">
-  <button mat-button mat-dialog-close>Volver</button>
-</mat-dialog-actions>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Volver</button>
+  </mat-dialog-actions>
 </div>
