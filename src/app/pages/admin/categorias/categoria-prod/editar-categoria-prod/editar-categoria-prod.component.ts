@@ -9,6 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CatProducto } from '../../../../../model/IcatProd';
 import { AbmCategoriasProdService } from '../../../../../services/abm-categorias-prod.service';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-editar-categoria-prod',
@@ -37,16 +38,17 @@ export class EditarCategoriaProdComponent implements OnInit {
     aplicativos: new UntypedFormControl(''),
   });
 
+  alerta: string = '';
+
   constructor(
     private abmCategoriasProdService: AbmCategoriasProdService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
     public fb: UntypedFormBuilder, // se usa para crear la validaciones
     public dialog: MatDialog,
+    private _snackBar: MatSnackBar,
     @Inject(MAT_DIALOG_DATA) public id: any
-  ) {
-    console.log('dentro del modal:', id);
-  }
+  ) {}
 
   params = this.activatedRoute.snapshot.params; // tomo el id de params
 
@@ -68,6 +70,7 @@ export class EditarCategoriaProdComponent implements OnInit {
   }
 
   actualizarCategoriaProd(datosDelForm: CatProducto) {
+    this.alerta = 'La categoria se actualizo con exito';
     this.abmCategoriasProdService
       // .actualizarCategoria(this.params.id, datosDelForm)
       .actualizarCategoria(this.id, datosDelForm)
@@ -75,11 +78,15 @@ export class EditarCategoriaProdComponent implements OnInit {
         (res) => {
           console.log('datos del form:', datosDelForm);
           // this.router.navigate(['/admin/categorias/categoria-prod']);
+          this.openMessage(this.alerta);
         },
         (err) => console.log(err)
       );
   }
-
+  // funcion de mensaje de alerta
+  openMessage(message: string) {
+    this._snackBar.open(message, '', { duration: 2000 });
+  }
   ngOnInit(): void {
     this.listarCategoriaProd();
   }

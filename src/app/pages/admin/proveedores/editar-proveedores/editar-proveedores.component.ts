@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import {
   UntypedFormGroup,
   UntypedFormBuilder,
@@ -9,6 +9,7 @@ import { AbmProveedoresService } from '../../../../services/abm-proveedores.serv
 import { ActivatedRoute, Router } from '@angular/router';
 import { Proveedores } from '../../../../model/Iproveedores';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-editar-proveedores',
@@ -17,6 +18,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class EditarProveedoresComponent implements OnInit {
   hide = true;
+  botonHabilitado: boolean = false;
 
   proveedor: Proveedores | any = {
     id: 0,
@@ -31,7 +33,7 @@ export class EditarProveedoresComponent implements OnInit {
     observacionesProv: '',
   };
 
-  messageValidators!: UntypedFormGroup;
+
   formActualizarProveedor = new UntypedFormGroup({
     id: new UntypedFormControl(''),
     razonSocial: new UntypedFormControl(''),
@@ -53,7 +55,9 @@ export class EditarProveedoresComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private router: Router,
     public fb: UntypedFormBuilder, // se usa para crear la validaciones
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    public dialog: MatDialog,
+    @Inject(MAT_DIALOG_DATA) public id: any
   ) {}
 
   params = this.activatedRoute.snapshot.params; // tomo el id de params
@@ -82,12 +86,12 @@ export class EditarProveedoresComponent implements OnInit {
   actualizarProveedor(datosDelForm: Proveedores) {
     this.alerta = 'El producto fue actualizado con exito';
     this.abmProveedoresService
-      .actualizarProveedor(this.params.id, datosDelForm)
+      .actualizarProveedor(this.id, datosDelForm)
       .subscribe(
         (res) => {
           console.log("datos del form:",datosDelForm);
           this.openMessage(this.alerta);
-          this.router.navigate(['admin/proveedores']);
+
         },
         (err) => console.log(err)
       );

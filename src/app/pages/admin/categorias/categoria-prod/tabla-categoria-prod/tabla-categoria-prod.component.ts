@@ -98,8 +98,8 @@ export class TablaCategoriaProdComponent implements OnInit {
       console.log(`Dialog result: ${result}`);
     });
   }
-  openDialogEdit(id?: string) {
-    console.log("id afuera del modal:",id);
+  openDialogEdit(id: string) {
+
     // abro e modal de editar categoria
     const dialogRef = this.dialog.open(EditarCategoriaProdComponent,{
       disableClose: true,

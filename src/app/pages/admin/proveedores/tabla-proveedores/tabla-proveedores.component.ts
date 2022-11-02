@@ -3,12 +3,16 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { AbmProveedoresService } from '../../../../services/abm-proveedores.service';
 import { Proveedores } from '../../../../model/Iproveedores';
 
+import { EditarProveedoresComponent } from '../editar-proveedores/editar-proveedores.component';
+import { CrearProveedoresComponent } from '../crear-proveedores/crear-proveedores.component';
+
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-tabla-proveedores',
@@ -16,7 +20,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./tabla-proveedores.component.css'],
 })
 export class TablaProveedoresComponent implements OnInit {
-
   displayedColumns: string[] = [
     'id',
     'razonSocial',
@@ -28,7 +31,7 @@ export class TablaProveedoresComponent implements OnInit {
     'telefono',
     'localidad',
     'observacionesProv',
-    'acciones'
+    'acciones',
   ];
 
   //creo un arreglo para que se almacenen todos aca
@@ -47,6 +50,7 @@ export class TablaProveedoresComponent implements OnInit {
     private router: Router,
     private abmProveedoresService: AbmProveedoresService,
     private _snackBar: MatSnackBar,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -78,10 +82,29 @@ export class TablaProveedoresComponent implements OnInit {
     );
     console.log(id);
   }
-// funcion de mensaje de alerta
-openMessage(message: string) {
-  this._snackBar.open(message, '', { duration: 2000 });
-}
+  // funcion de mensaje de alerta
+  openMessage(message: string) {
+    this._snackBar.open(message, '', { duration: 2000 });
+  }
+  // abro el modal de crear categoria
+  openDialog() {
+    const dialogRef = this.dialog.open(CrearProveedoresComponent, {
+      disableClose: true,
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+  openDialogEdit(id: string) {
+    // abro e modal de editar categoria
+    const dialogRef = this.dialog.open(EditarProveedoresComponent, {
+      disableClose: true,
+      data: id,
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log(`DialogEdit result: ${result}`);
+    });
+  }
   // creo la funcion filter
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;

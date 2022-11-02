@@ -1,48 +1,67 @@
 .fondoBody {
-
   line-height: 1.6;
-  font-family: "Playfair Display", serif;
-  padding: 0 1.5em;
-  height: 100vh;
+  /* font-family: "Playfair Display", serif; */
+  padding: 1.5em 1.5em;
+  height: 100%;
+  width: 100vh;
+  color: #666;
+  background-color: #181818;;
+}
 
+.sombra {
+  padding: 2%;
+  box-shadow: 0 0 20px 0 rgba(238, 8, 8, 0.3);
+}
+
+mat-toolbar {
+  width: 95%;
+  margin: auto;
+  text-align: center;
+  background: #222222;
+  color: white;
+}
+
+.max-widthInput {
+  max-width: 165px;
+}
+.mat-dialog-content {
+  display: contents;
+}
+table {
+  width: 95%;
+  margin: auto;
+  text-align: center;
+  color: white;
+}
+
+td {
+  padding: 0px 4px;
+}
+mat-label {
+  color: white;
 }
 
 form {
   width: 95%;
-  margin: 5% auto;
+  margin: 5% 0;
 }
 
-table,
-mat-form-field,
-input {
-  width: 100%;
+.centrar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-input {
-  color: white;
+.card-vistaPrevia {
+  width: 80%;
+  height: min-content;
+  background: #222222;
 }
-
-mat-label {
-  color: white;
-}
-td {
-  padding-right: 8px;
-}
-
-
-
-.sombra {
-  padding: 2%;
-  box-shadow: 0 0 20px 0 rgba(255, 255, 255, 0.3);
-}
-
-.logoRegister-login span {
-  color: #b70e21;
-}
-
-.logoRegister-login {
-  text-align: center;
-  font-size: 3em;
+mat-card {
+  background: #222222;
+  margin-left: 2rem;
   color: #fff;
-  text-transform: none;
-  margin-top: 10%;
+}
+.contact-wrapper {
+  padding: 2% 0;
+  box-shadow: 0 0 20px 0 rgba(255, 255, 255, 0.3);
 }

@@ -1,102 +1,137 @@
 <div class="fondoBody">
-  <mat-toolbar>
-    <span>Actualizar Proveedor</span>
-  </mat-toolbar>
+  <mat-dialog-content class="mat-typography fondoBody">
+    <mat-toolbar class="centrar">
+      <span>Actualizar Proveedor</span>
+    </mat-toolbar>
 
-  <form class="sombra" [formGroup]="formActualizarProveedor">
-    <mat-card>
-      <mat-card-content>
-        <mat-form-field class="example-full-width" appearance="fill">
-          <mat-label>Proveedor</mat-label>
-          <input
-            matInput
-            value="{{ proveedor.nombreFantasia }}"
-            formControlName="nombreFantasia"
-            autocomplete="off"
-          />
-        </mat-form-field>
-        <mat-form-field class="example-full-width" appearance="fill">
-          <mat-label>Razon Social</mat-label>
-          <input
-            matInput
-            value="{{ proveedor.razonSocial }}"
-            formControlName="razonSocial"
-            autocomplete="off"
-          />
-        </mat-form-field>
-        <mat-form-field class="example-full-width" appearance="fill">
-          <mat-label>Cuil</mat-label>
-          <input
-            matInput
-            value="{{ proveedor.cuil }}"
-            formControlName="cuil"
-            autocomplete="off"
-          />
-        </mat-form-field>
-        <mat-form-field class="example-full-width" appearance="fill">
-          <mat-label>Direccion</mat-label>
-          <input
-            matInput
-            value="{{ proveedor.direccion }}"
-            formControlName="direccion"
-            autocomplete="off"
-          />
-        </mat-form-field>
-        <mat-form-field class="example-full-width" appearance="fill">
-          <mat-label>Localidad</mat-label>
-          <input
-            matInput
-            value="{{ proveedor.localidad }}"
-            formControlName="localidad"
-            autocomplete="off"
-          />
-        </mat-form-field>
-        <mat-form-field class="example-full-width" appearance="fill">
-          <mat-label>Codigo Postal</mat-label>
-          <input
-            matInput
-            value="{{ proveedor.codPostal }}"
-            formControlName="codPostal"
-            autocomplete="off"
-          />
-        </mat-form-field>
-        <mat-form-field class="example-full-width" appearance="fill">
-          <mat-label>Telefono</mat-label>
-          <input
-            matInput
-            value="{{ proveedor.telefono }}"
-            formControlName="telefono"
-            autocomplete="off"
-          />
-        </mat-form-field>
-        <mat-form-field class="example-full-width" appearance="fill">
-          <mat-label>Contacto</mat-label>
-          <input
-            matInput
-            value="{{ proveedor.contacto }}"
-            formControlName="contacto"
-            autocomplete="off"
-          />
-        </mat-form-field>
-        <mat-form-field class="example-full-width" appearance="fill">
-          <mat-label>Observacion</mat-label>
-          <input
-            matInput
-            value="{{ proveedor.observacionesProv }}"
-            formControlName="observacionesProv"
-            autocomplete="off"
-          />
-        </mat-form-field>
-      </mat-card-content>
-      <mat-card-actions>
-        <button
-          mat-raised-button
-          color="primary"
-          (click)="actualizarProveedor(formActualizarProveedor.value)"
-        >
-          Actualizar
-        </button>
-      </mat-card-actions>
-    </mat-card>
-  </form>
+    <div class="row centrar">
+      <form class="sombra" [formGroup]="formActualizarProveedor">
+        <table mat-table matSort class="centrar">
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Proveedor</mat-label>
+                <input
+                  matInput
+                  value="{{ proveedor.nombreFantasia }}"
+                  formControlName="nombreFantasia"
+                  autocomplete="off"
+                />
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Razon Social</mat-label>
+                <input
+                  matInput
+                  value="{{ proveedor.razonSocial }}"
+                  formControlName="razonSocial"
+                  autocomplete="off"
+                />
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Cuil</mat-label>
+                <input
+                  matInput
+                  value="{{ proveedor.cuil }}"
+                  formControlName="cuil"
+                  autocomplete="off"
+                />
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+        <table mat-table matSort class="centrar">
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Direccion</mat-label>
+                <input
+                  matInput
+                  value="{{ proveedor.direccion }}"
+                  formControlName="direccion"
+                  autocomplete="off"
+                />
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Localidad</mat-label>
+                <input
+                  matInput
+                  value="{{ proveedor.localidad }}"
+                  formControlName="localidad"
+                  autocomplete="off"
+                />
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Codigo Postal</mat-label>
+                <input
+                  matInput
+                  value="{{ proveedor.codPostal }}"
+                  formControlName="codPostal"
+                  autocomplete="off"
+                />
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+        <table mat-table matSort class="centrar">
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Telefono</mat-label>
+                <input
+                  matInput
+                  value="{{ proveedor.telefono }}"
+                  formControlName="telefono"
+                  autocomplete="off"
+                />
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Contacto</mat-label>
+                <input
+                  matInput
+                  value="{{ proveedor.contacto }}"
+                  formControlName="contacto"
+                  autocomplete="off"
+                />
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Observacion</mat-label>
+                <input
+                  matInput
+                  value="{{ proveedor.observacionesProv }}"
+                  formControlName="observacionesProv"
+                  autocomplete="off"
+                />
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+
+        <div class="row">
+          <button
+            mat-raised-button
+            color="primary"
+            (click)="actualizarProveedor(formActualizarProveedor.value)"
+          >
+            Actualizar
+          </button>
+        </div>
+      </form>
+    </div>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Volver</button>
+  </mat-dialog-actions>
 </div>

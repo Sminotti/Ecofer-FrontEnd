@@ -1,73 +1,93 @@
 <div class="fondoBody">
-  <mat-toolbar>
-    <span>Crear Proveedor</span>
-  </mat-toolbar>
+  <mat-dialog-content class="mat-typography fondoBody">
+    <mat-toolbar class="centrar">
+      <span>Crear Proveedor</span>
+    </mat-toolbar>
 
-  <div class="row">
-    <form class="sombra" [formGroup]="this.formCrearProveedor">
-      <table cellspacing="0">
-        <tr>
-          <td>
-            <mat-form-field>
-              <mat-label>Proveedor</mat-label>
-              <input matInput formControlName="nombreFantasia" />
-            </mat-form-field>
-          </td>
-          <td>
-            <mat-form-field>
-              <mat-label>Razon social</mat-label>
-              <input matInput formControlName="razonSocial" />
-            </mat-form-field>
-          </td>
-          <td>
-            <mat-form-field>
-              <mat-label>Cuil</mat-label>
-              <input matInput formControlName="cuil" />
-            </mat-form-field>
-          </td>
-          <td>
-            <mat-form-field>
-              <mat-label>Direccion</mat-label>
-              <input matInput formControlName="direccion" />
-            </mat-form-field>
-          </td>
-          <td>
-            <mat-form-field>
-              <mat-label>Localidad</mat-label>
-              <input matInput formControlName="localidad" />
-            </mat-form-field>
-          </td>
-          <td>
-            <mat-form-field>
-              <mat-label>Codigo Postal</mat-label>
-              <input matInput formControlName="codPostal" />
-            </mat-form-field>
-          </td>
-          <td>
-            <mat-form-field>
-              <mat-label>Telefono</mat-label>
-              <input matInput formControlName="telefono" />
-            </mat-form-field>
-          </td>
-          <td>
-            <mat-form-field>
-              <mat-label>Contacto</mat-label>
-              <input matInput formControlName="contacto" />
-            </mat-form-field>
-          </td>
-          <td>
-            <mat-form-field>
-              <mat-label>Observaciones</mat-label>
-              <input matInput formControlName="observacionesProv" />
-            </mat-form-field>
-          </td>
-        </tr>
-      </table>
-      <div class="row">
-        <button mat-raised-button color="primary" (click)="crearProveedor()">
-         Ingresar producto
-        </button>
-      </div>
-    </form>
-  </div>
+    <div class="row centrar">
+      <form class="sombra" [formGroup]="this.formCrearProveedor">
+        <table mat-table matSort class="centrar">
+          <tr>
+            <td>
+              <mat-form-field class="max-widthInput" appearance="fill">
+                <mat-label>Proveedor</mat-label>
+                <input matInput formControlName="nombreFantasia" />
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="max-widthInput" appearance="fill">
+                <mat-label>Razon social</mat-label>
+                <input matInput formControlName="razonSocial" />
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="max-widthInput" appearance="fill">
+                <mat-label>Cuil</mat-label>
+                <input matInput formControlName="cuil" />
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+        <table mat-table matSort class="centrar">
+          <tr>
+            <td>
+              <mat-form-field class="max-widthInput" appearance="fill">
+                <mat-label>Direccion</mat-label>
+                <input matInput formControlName="direccion" />
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="max-widthInput" appearance="fill">
+                <mat-label>Localidad</mat-label>
+                <input matInput formControlName="localidad" />
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="max-widthInput" appearance="fill">
+                <mat-label>Codigo Postal</mat-label>
+                <input matInput formControlName="codPostal" />
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+        <table mat-table matSort class="centrar">
+          <tr>
+            <td>
+              <mat-form-field class="max-widthInput" appearance="fill">
+                <mat-label>Telefono</mat-label>
+                <input matInput formControlName="telefono" />
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="max-widthInput" appearance="fill">
+                <mat-label>Contacto</mat-label>
+                <input matInput formControlName="contacto" />
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="max-widthInput" appearance="fill">
+                <mat-label>Observaciones</mat-label>
+                <input matInput formControlName="observacionesProv" />
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+
+        <div class="row">
+          <button
+            mat-raised-button
+            color="primary"
+            (click)="crearProveedor()"
+            [disabled]="!this.formCrearProveedor.valid"
+          >
+            Ingresar proveedor
+          </button>
+        </div>
+      </form>
+    </div>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Volver</button>
+  </mat-dialog-actions>
 </div>
